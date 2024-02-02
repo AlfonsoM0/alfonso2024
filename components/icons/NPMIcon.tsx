@@ -1,0 +1,33 @@
+import { CSSProperties } from 'react';
+
+export default function AudioOffIcon({
+  Width,
+  Style,
+  ClassName,
+}: {
+  Width: number;
+  Style?: CSSProperties;
+  ClassName?: string;
+}) {
+  // https://heroicons.com/ | https://www.svgrepo.com
+  // style={Style}
+  // width={Width}
+  // height={Width}
+  // className={ClassName}
+  return (
+    <svg
+      style={Style}
+      width={Width}
+      height={Width}
+      className={ClassName}
+      viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <title>file_type_npm</title>
+      <path
+        d="M2,10.555H30v9.335H16v1.556H9.778V19.889H2Zm1.556,7.779H6.667V13.666H8.222v4.667H9.778V12.111H3.556Zm7.778-6.223v7.779h3.111V18.334h3.111V12.111Zm3.111,1.556H16v3.112H14.444Zm4.667-1.556v6.223h3.111V13.666h1.556v4.667h1.556V13.666h1.556v4.667h1.556V12.111Z"
+        style={{ fill: '#cb3837' }}
+      />
+    </svg>
+  );
+}

@@ -1,0 +1,42 @@
+import { CSSProperties } from 'react';
+
+export default function AudioOffIcon({
+  Width,
+  Style,
+  ClassName,
+}: {
+  Width: number;
+  Style?: CSSProperties;
+  ClassName?: string;
+}) {
+  // https://heroicons.com/ | https://www.svgrepo.com
+  // style={Style}
+  // width={Width}
+  // height={Width}
+  // className={ClassName}
+  return (
+    <svg
+      style={Style}
+      width={Width}
+      height={Width}
+      className={ClassName}
+      viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="#000000"
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier">
+        <title>file_type_light_pnpm</title>
+        <path d="M30,10.75H21.251V2H30Z" style={{ fill: '#f9ad00' }}></path>
+        <path d="M20.374,10.75h-8.75V2h8.75Z" style={{ fill: '#f9ad00' }}></path>
+        <path d="M10.749,10.75H2V2h8.749Z" style={{ fill: '#f9ad00' }}></path>
+        <path d="M30,20.375H21.251v-8.75H30Z" style={{ fill: '#f9ad00' }}></path>
+        <path d="M20.374,20.375h-8.75v-8.75h8.75Z" style={{ fill: '##4e4e4e' }}></path>
+        <path d="M20.374,30h-8.75V21.25h8.75Z" style={{ fill: '##4e4e4e' }}></path>
+        <path d="M30,30H21.251V21.25H30Z" style={{ fill: '##4e4e4e' }}></path>
+        <path d="M10.749,30H2V21.25h8.749Z" style={{ fill: '##4e4e4e' }}></path>
+      </g>
+    </svg>
+  );
+}

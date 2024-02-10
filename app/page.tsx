@@ -7,6 +7,7 @@ import { GitHubIcon } from '@/components/icons';
 
 import lang from '@config/MainPage_lang';
 import { Metadata } from 'next';
+import PageMain from '@/components/PageMain';
 
 const { presentation_p, talents, talents_ul, contactMe, contactMe_ul, lenguagesAndTools_ul } =
   lang.en;
@@ -35,42 +36,39 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      {/* <div className="inline-block max-w-lg text-center justify-center">
-        <h1 className={title()}>Make&nbsp;</h1>
-        <h1 className={title({ color: 'violet' })}>beautiful&nbsp;</h1>
-        <br />
-        <h1 className={title()}>websites regardless of your design experience.</h1>
-        <h2 className={subtitle({ class: 'mt-4' })}>
-          Beautiful, fast and modern React UI library.
-        </h2>
-      </div>
+    <PageMain />
+    // <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+    //   <div className="inline-block max-w-lg text-center justify-center">
+    //     <h1 className={title()}>Make&nbsp;</h1>
+    //     <h1 className={title({ color: 'violet' })}>beautiful&nbsp;</h1>
+    //     <br />
+    //     <h1 className={title()}>websites regardless of your design experience.</h1>
+    //     <h2 className={subtitle({ class: 'mt-4' })}>
+    //       Beautiful, fast and modern React UI library.
+    //     </h2>
+    //   </div>
 
-      <div className="flex gap-3">
-        <Link
-          isExternal
-          href={siteConfig.links.docs}
-          className={buttonStyles({ color: 'primary', radius: 'full', variant: 'shadow' })}
-        >
-          Documentation
-        </Link>
-        <Link
-          isExternal
-          className={buttonStyles({ variant: 'bordered', radius: 'full' })}
-          href={siteConfig.links.github}
-        >
-          <GitHubIcon Width={20} />
-          GitHub
-        </Link>
-      </div>
+    //   <div className="flex gap-3">
+    //     <Link
+    //       isExternal
+    //       href="#"
+    //       className={buttonStyles({ color: 'primary', radius: 'full', variant: 'shadow' })}
+    //     >
+    //       Documentation
+    //     </Link>
+    //     <Link isExternal className={buttonStyles({ variant: 'bordered', radius: 'full' })} href="#">
+    //       <GitHubIcon Width={20} />
+    //       GitHub
+    //     </Link>
+    //   </div>
 
-      <div className="mt-8">
-        <Snippet hideSymbol hideCopyButton variant="flat">
-          <span>
-            Get started by editing <Code color="primary">app/page.tsx</Code>
-          </span>
-        </Snippet>
-      </div> */}
-    </section>
+    //   <div className="mt-8">
+    //     <Snippet hideSymbol hideCopyButton variant="flat">
+    //       <span>
+    //         Get started by editing <Code color="primary">app/page.tsx</Code>
+    //       </span>
+    //     </Snippet>
+    //   </div>
+    // </section>
   );
 }

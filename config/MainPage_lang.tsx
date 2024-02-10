@@ -182,4 +182,6 @@ const en = {
   lenguagesAndTools_ul: es.lenguagesAndTools_ul,
 };
 
-export const Lang = { es, en };
+const lang = { es, en };
+
+export default lang;

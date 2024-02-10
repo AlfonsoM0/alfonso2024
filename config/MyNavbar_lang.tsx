@@ -44,4 +44,6 @@ const en = {
   ],
 };
 
-export const Lang = { es, en };
+const lang = { es, en };
+
+export default lang;

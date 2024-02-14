@@ -12,8 +12,8 @@ export default function Footer() {
         href="#"
         title="alfonso.ar homepage"
       >
-        <span className="text-default-600">{es[0]}</span>
-        <p className="text-primary">{es[1]}</p>
+        <span className="text-default-600 text-shadow shadow-white dark:shadow-black">{es[0]}</span>
+        <p className="text-primary text-shadow shadow-white dark:shadow-black">{es[1]}</p>
       </Link>
     </footer>
   );

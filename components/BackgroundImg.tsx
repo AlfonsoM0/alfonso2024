@@ -37,7 +37,7 @@ export default function BackgroundImg({
       style={{
         objectFit: 'cover',
         visibility: isShow,
-        opacity: `${type === 'dark' ? 0.85 : 0.5}`,
+        opacity: `${type === 'dark' ? 1 : 0.5}`,
       }}
     />
   );

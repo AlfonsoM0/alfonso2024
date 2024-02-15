@@ -28,21 +28,21 @@ export default function BackgroundImg({
   }, [isSSR, theme, type]);
 
   return (
-    <Image
-      className={`BackgroundImg BackgroundImg-${type}`}
-      priority
-      alt={alt}
-      src={src}
-      placeholder="blur"
-      quality={100}
-      fill
-      sizes="100vw"
-      style={{
-        objectFit: 'cover',
-        visibility: isShow,
-        opacity,
-        zIndex: -1,
-      }}
-    />
+    <div className={`BackgroundImg BackgroundImg-${type}`}>
+      <Image
+        priority
+        alt={alt}
+        src={src}
+        placeholder="empty"
+        quality={100}
+        fill
+        sizes="100vw"
+        style={{
+          objectFit: 'cover',
+          visibility: isShow,
+          opacity,
+        }}
+      />
+    </div>
   );
 }

@@ -21,7 +21,7 @@ import TypeScriptIcon from '@components/icons/TypeScriptIcon';
 import TRPCIcon from '@components/icons/TRPCIcon';
 import PrismaIcon from '@components/icons/PrismaIcon';
 
-const socialIconsWidth = 100;
+const socialIconsWidth = 80;
 const toolsIconWidth = 75;
 
 const es = {
@@ -33,11 +33,11 @@ const es = {
   presentation_p: `Soy un desarrollador web y un administrador de empresas experimentado. Soy una persona sociable, creativa y analítica que valora la honestidad, la confianza y el respeto.`,
   talents: `Si está buscando una persona con facilidad para: `,
   talents_ul: [
-    `Comunicar o enseñar ideas complejas`,
-    `Planear, organizar, dirigir y controlar proyectos`,
-    `Desarrollar códigos de lógicas complejas en backend y frontend`,
-    `Analizar situaciones o datos para encontrar soluciones creativas`,
-    `Comprender sobre las tecnologías empresariales y de la información`,
+    `Comunicar o enseñar ideas complejas.`,
+    `Planear, organizar, dirigir y controlar proyectos.`,
+    `Desarrollar códigos de lógicas complejas en backend y frontend.`,
+    `Analizar situaciones o datos para encontrar soluciones creativas.`,
+    `Comprender sobre las tecnologías empresariales y de la información.`,
   ],
   contactMe: `Conecta conmigo: `,
   contactMe_ul: [
@@ -168,11 +168,11 @@ const en = {
   presentation_p: `I am a web developer and an experienced business administrator. I am a sociable, creative and analytical person who values honesty, trust and respect.`,
   talents: `If you are looking for someone proficient at: `,
   talents_ul: [
-    `Communicateing or teaching complex ideas`,
-    `Planing, organizing, directing and controling`,
-    `Developing complex logic codes in Backend and Frontend`,
-    `Analyzing situations or data to find creative solutions`,
-    `Understanding business and information technologies`,
+    `Communicateing or teaching complex ideas.`,
+    `Planing, organizing, directing and controling.`,
+    `Developing complex logic codes in Backend and Frontend.`,
+    `Analyzing situations or data to find creative solutions.`,
+    `Understanding business and information technologies.`,
   ],
   contactMe: `Connect with me: `,
   contactMe_ul: es.contactMe_ul,

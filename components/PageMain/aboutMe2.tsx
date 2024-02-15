@@ -8,9 +8,9 @@ export default function AboutMe2() {
   const txt = appIsEnglish ? lang.en : lang.es;
 
   return (
-    <div className="flex flex-col justify-center text-shadow shadow-white dark:shadow-black m-10">
-      <h1 className={`text-center text-2xl`}>{txt.talents}</h1>
-      <ul className="mt-4 text-justify ml-8">
+    <div className="flex flex-col justify-center max-w-sm text-shadow shadow-white dark:shadow-black m-10">
+      <h2 className={`text-center text-2xl`}>{txt.talents}</h2>
+      <ul className="mt-4 ml-8">
         {txt.talents_ul.map((talent, i) => (
           <li key={i} className="list-disc">
             {talent}

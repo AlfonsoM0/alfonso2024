@@ -22,7 +22,7 @@ import TRPCIcon from '@components/icons/TRPCIcon';
 import PrismaIcon from '@components/icons/PrismaIcon';
 
 const socialIconsWidth = 80;
-const toolsIconWidth = 75;
+const toolsIconWidth = 60;
 
 const es = {
   presentation: (

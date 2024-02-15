@@ -2,6 +2,7 @@ import AboutMe1 from './aboutMe1';
 import AboutMe2 from './aboutMe2';
 import BigAvatar from './bigAvatar';
 import Connect from './connect';
+import LangAndTools from './langAndTools';
 
 export default function PageMain() {
   return (
@@ -18,6 +19,10 @@ export default function PageMain() {
           <AboutMe2 />
           <Connect />
         </div>
+      </section>
+
+      <section className="flex flex-col items-center justify-center">
+        <LangAndTools />
       </section>
     </>
   );

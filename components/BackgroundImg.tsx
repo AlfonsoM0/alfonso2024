@@ -29,6 +29,7 @@ export default function BackgroundImg({
 
   return (
     <Image
+      className={`BackgroundImg BackgroundImg-${type}`}
       priority
       alt={alt}
       src={src}

@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <BackgroundImg alt="Dark Background" type="dark" opacity={0.85} src={BG_Ray} />
-      <BackgroundImg alt="Light Background" type="light" opacity={0.6} src={SpaceSun} />
+      <BackgroundImg alt="Dark Background" type="dark" opacity={1} src={BG_Ray} />
+      <BackgroundImg alt="Light Background" type="light" opacity={1} src={SpaceSun} />
       <PageMain />
     </>
   );

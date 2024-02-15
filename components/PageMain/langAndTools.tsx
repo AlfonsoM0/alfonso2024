@@ -14,7 +14,7 @@ export default function LangAndTools() {
       <h2 className="text-2xl text-shadow shadow-white dark:shadow-black">
         {txt.lenguagesAndTools}
       </h2>
-      <div className="flex flex-wrap my-8">
+      <div className="flex flex-wrap justify-center my-8">
         {txt.lenguagesAndTools_ul.map((item, i) => (
           <CustomPopover key={i} popoverTitle={item.name}>
             <Link href={item.href} className="m-3">

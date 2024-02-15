@@ -15,13 +15,13 @@ export default function Connect() {
       <div className="flex justify-center mt-4">
         {txt.contactMe_ul.map((item, i) => (
           <CustomPopover key={i} popoverTitle={item.name}>
-            <Link href={item.href} className="m-3">
+            <Link href={item.href} target="_blank" rel="noopener noreferrer" className="m-3">
               {item.icon}
             </Link>
           </CustomPopover>
         ))}
       </div>
-      <h3 className="text-lg mt-4">{txt.knowMore}</h3>
+      <h3 className="text-lg mt-4 text-center">{txt.knowMore}</h3>
       <Link href="/" className="text-center mt-4 text-blue-800 dark:text-yellow-300">
         {txt.alfonsoBot}
       </Link>

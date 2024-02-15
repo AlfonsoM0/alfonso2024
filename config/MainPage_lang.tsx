@@ -27,7 +27,7 @@ const toolsIconWidth = 60;
 const es = {
   presentation: (
     <>
-      Soy un apasionado desarrollador web <br /> Full Stack
+      Soy un apasionado <br /> desarrollador web Full Stack
     </>
   ),
   presentation_p: `Soy un desarrollador web y un administrador de empresas experimentado. Soy una persona sociable, creativa y analítica que valora la honestidad, la confianza y el respeto.`,

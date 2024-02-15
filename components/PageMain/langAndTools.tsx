@@ -17,7 +17,7 @@ export default function LangAndTools() {
       <div className="flex flex-wrap justify-center my-8">
         {txt.lenguagesAndTools_ul.map((item, i) => (
           <CustomPopover key={i} popoverTitle={item.name}>
-            <Link href={item.href} className="m-3">
+            <Link href={item.href} target="_blank" rel="noopener noreferrer" className="m-3">
               {item.icon}
             </Link>
           </CustomPopover>

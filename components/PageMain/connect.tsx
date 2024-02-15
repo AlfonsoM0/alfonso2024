@@ -22,7 +22,7 @@ export default function Connect() {
         ))}
       </div>
       <h3 className="text-lg mt-4 text-center">{txt.knowMore}</h3>
-      <Link href="/" className="text-center mt-4 text-blue-800 dark:text-yellow-300">
+      <Link href="/alfonsobot" className="text-center mt-4 text-blue-800 dark:text-yellow-300">
         {txt.alfonsoBot}
       </Link>
     </div>

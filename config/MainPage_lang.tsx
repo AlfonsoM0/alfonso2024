@@ -53,7 +53,7 @@ const es = {
     },
   ],
   knowMore: `¿Quieres saber más sobre mí?`,
-  alfonsoBot: `Pregúntele a AlfonsoBot!`,
+  alfonsoBot: `¡Pregúntele a AlfonsoBot!`,
   lenguagesAndTools: `Lenguages y herramientas`,
   lenguagesAndTools_ul: [
     {

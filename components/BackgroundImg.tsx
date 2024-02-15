@@ -9,10 +9,12 @@ export default function BackgroundImg({
   src,
   alt,
   type,
+  opacity = 1,
 }: {
   src: StaticImageData;
   alt: string;
   type: 'dark' | 'light';
+  opacity?: number;
 }) {
   const isSSR = useIsSSR();
   const { theme } = useTheme();
@@ -37,7 +39,8 @@ export default function BackgroundImg({
       style={{
         objectFit: 'cover',
         visibility: isShow,
-        opacity: `${type === 'dark' ? 1 : 0.5}`,
+        opacity,
+        zIndex: -1,
       }}
     />
   );

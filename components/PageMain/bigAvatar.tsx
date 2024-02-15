@@ -1,6 +1,6 @@
 'use client';
 
-import { Avatar, AvatarGroup, AvatarIcon } from '@nextui-org/avatar';
+import { Avatar, AvatarGroup, AvatarIcon } from '@nextui-org/react';
 import YoFormal from '@public/image/YoFormal.png';
 import YoFormal2 from '@public/image/YoFormal2.png';
 import { useTheme } from 'next-themes';

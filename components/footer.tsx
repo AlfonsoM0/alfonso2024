@@ -1,6 +1,6 @@
 'use client';
 
-import { Link } from '@nextui-org/link';
+import { Link } from '@nextui-org/react';
 import { Lang } from '@config/Footer_lang';
 import useUserStore from '@/store/userStore';
 

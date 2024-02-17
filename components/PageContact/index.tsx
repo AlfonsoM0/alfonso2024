@@ -6,7 +6,7 @@ import lang from '@/config/ContactForm_lang';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import contactFormSchema from '@/schema/contactFormSchema';
+import { contactFormSchemaEn, contactFormSchemaEs } from '@/schema/contactFormSchema';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -25,8 +25,10 @@ export default function ContactForm() {
   const { appIsEnglish } = useUserStore((store) => store);
   const txt = appIsEnglish ? lang.en : lang.es;
 
-  const form = useForm<z.infer<typeof contactFormSchema>>({
-    resolver: zodResolver(contactFormSchema),
+  const formSchema = appIsEnglish ? contactFormSchemaEn : contactFormSchemaEs;
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
       email: '',
@@ -35,7 +37,7 @@ export default function ContactForm() {
     },
   });
 
-  function onSubmir(values: z.infer<typeof contactFormSchema>) {
+  function onSubmir(values: z.infer<typeof formSchema>) {
     console.info(values);
     form.reset();
   }

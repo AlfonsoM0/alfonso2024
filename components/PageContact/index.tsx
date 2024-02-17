@@ -20,8 +20,17 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useState } from 'react';
+import { sendEmail } from '@/server/actions/sendEmail';
+import formToEmail from './formToEmail';
+import { Spinner } from '@nextui-org/react';
 
 export default function ContactForm() {
+  const [isSubmited, setIsSubmited] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [isError, setIsError] = useState(false);
+
   const { appIsEnglish } = useUserStore((store) => store);
   const txt = appIsEnglish ? lang.en : lang.es;
 
@@ -37,13 +46,41 @@ export default function ContactForm() {
     },
   });
 
-  function onSubmir(values: z.infer<typeof formSchema>) {
-    console.info(values);
-    form.reset();
+  async function onSubmir(values: z.infer<typeof formSchema>) {
+    setIsLoading(true);
+    setIsSubmited(true);
+
+    const infoForEmail = formToEmail(values);
+    const emailIsOK = await sendEmail(infoForEmail);
+
+    if (emailIsOK) {
+      setIsError(false);
+      form.reset();
+    } else setIsError(true);
+
+    setIsLoading(false);
   }
+
+  if (isLoading)
+    return (
+      <div className="h-full flex justify-center items-center">
+        <Spinner size="lg" aria-label="Loading..." />
+      </div>
+    );
+  else if (isSubmited && !isError)
+    return (
+      <div className="h-full flex justify-center items-center">
+        <Button variant={'outline'} onClick={() => setIsSubmited(false)}>
+          {txt.send_success}
+        </Button>
+      </div>
+    );
 
   return (
     <div className="max-w-md m-auto">
+      <h1 className="text-center text-4xl text-shadow shadow-white dark:shadow-black">
+        {txt.pageTitle}
+      </h1>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmir)} className="space-y-8">
           <div className="flex flex-wrap justify-between">
@@ -107,6 +144,13 @@ export default function ContactForm() {
           <Button type="submit" size={'fullWidth'} variant={'outline'}>
             {txt.button_send}
           </Button>
+
+          {/* Emial sending error */}
+          {isSubmited && isError ? (
+            <p className="text-sm font-medium text-red-500 dark:text-yellow-400 text-center text-shadow shadow-white dark:shadow-black">
+              {txt.send_error}
+            </p>
+          ) : null}
         </form>
       </Form>
     </div>

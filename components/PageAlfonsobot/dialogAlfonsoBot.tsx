@@ -18,7 +18,9 @@ export default function AlfonsobotResponse({
         />
         <div className="font-medium">AlfonsoBot</div>
       </div>
-      <div className="bg-white dark:bg-black rounded-lg p-2 shadow mb-2 max-w-sm">{response}</div>
+      <div className="bg-white dark:bg-black rounded-lg p-2 shadow mb-2 max-w-[85%]">
+        {response}
+      </div>
     </>
   );
 }

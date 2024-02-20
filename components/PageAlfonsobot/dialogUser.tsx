@@ -8,7 +8,7 @@ export default function UserResponse({
 }) {
   return (
     <>
-      <div className="flex items-center justify-end">
+      <div className="flex items-center justify-end my-1">
         <div className="bg-blue-500 dark:bg-blue-800 text-white rounded-lg p-2 shadow mr-2 max-w-sm">
           {response}
         </div>

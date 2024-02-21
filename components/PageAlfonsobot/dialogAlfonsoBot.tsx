@@ -1,4 +1,4 @@
-import AlfonsoBotIcon from '@public/android-chrome-192x192.png';
+import AlfonsoBotIcon from '@public/android-chrome-192x192.webp';
 import Image from 'next/image';
 
 export default function AlfonsobotResponse({

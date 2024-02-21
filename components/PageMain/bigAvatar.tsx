@@ -10,7 +10,7 @@ export default function BigAvatar() {
 
   return (
     <Avatar
-      src={theme === 'dark' ? yoFormal1.src : yoFormal2.src}
+      src={theme === 'light' ? yoFormal2.src : yoFormal1.src}
       alt="AlfonsoM0 avatar"
       className="w-60 h-60 text-large bg-transparent shadow-2xl shadow-black dark:shadow-white"
     />

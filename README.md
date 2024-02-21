@@ -1,6 +1,6 @@
 # [AlfonsoM0 | Web Developer](https://alfonso.ar/)
 
-This is the repository for alfonso.ar profesional web application.
+This is the repository for [alfonso.ar](https://alfonso.ar/) profesional web application.
 
 ## Technologies Used
 
@@ -10,10 +10,11 @@ This is the repository for alfonso.ar profesional web application.
 - [Tailwind Variants](https://tailwind-variants.org)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+- [Next Themes](https://github.com/pacocoursey/next-themes)
 - [Node Mailer](https://nodemailer.com/)
 - [Gemini AI](https://gemini.google.com/app)
 - [Zustand](https://zustand-demo.pmnd.rs/)
+- [Next PWA](https://www.npmjs.com/package/@ducanh2912/next-pwa)
 
 ## How to Use
 

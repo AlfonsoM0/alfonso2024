@@ -4,7 +4,7 @@
   "display": "minimal-ui",
   "orientation": "any",
   "scope": "/",
-  "start_url": "http://alfonso.ar",
+  "start_url": "https://alfonso.ar",
   "name": "Alfonso | Web Developer",
   "short_name": "Alfonso Dev",
   "description": "Information and consultations about Alfonso, web developer.",
@@ -25,7 +25,7 @@
       "name": "Message to Alfonso",
       "short_name": "Message",
       "description": "Send a message to Alfonso.",
-      "url": "http://alfonso.ar/contact",
+      "url": "https://alfonso.ar/contact",
       "icons": [
         {
           "src": "/android-chrome-192x192.webp",
@@ -37,7 +37,7 @@
       "name": "AlfonsoBot Chat",
       "short_name": "AlfonsoBot",
       "description": "Chat with an AI about Alfonso.",
-      "url": "http://alfonso.ar/alfonsobot",
+      "url": "https://alfonso.ar/alfonsobot",
       "icons": [
         {
           "src": "/android-chrome-192x192.webp",

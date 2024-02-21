@@ -6,7 +6,7 @@ import { Button, CircularProgress } from '@nextui-org/react';
 import { useState } from 'react';
 
 export default function SendInput() {
-  const { appIsEnglish, addChatResponse } = useUserStore((store) => store);
+  const { appIsEnglish, alfonsobotChat, addChatResponse } = useUserStore((store) => store);
 
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +17,7 @@ export default function SendInput() {
 
     addChatResponse({ role: 'user', parts: inputText });
 
-    const res = await runAlfonsobotChat(inputText);
+    const res = await runAlfonsobotChat(inputText, alfonsobotChat);
     addChatResponse({ role: 'model', parts: res });
 
     setInputText('');
@@ -35,6 +35,7 @@ export default function SendInput() {
         className="w-full border rounded-full py-2 px-4 mr-2"
         type="text"
         placeholder={placeholder}
+        aria-label={placeholder}
       />
 
       {isLoading ? (

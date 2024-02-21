@@ -1,17 +1,24 @@
 'use server';
 
-import alfonsobotHistory from '@/config/alfonsobotPromtHistory';
-import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
+import {
+  GoogleGenerativeAI,
+  HarmCategory,
+  HarmBlockThreshold,
+  InputContent,
+} from '@google/generative-ai';
 
 const MODEL_NAME = 'gemini-1.0-pro';
 const API_KEY = process.env.AI_APY_KEY || '';
 
-export default async function runAlfonsobotChat(userInput: string) {
+export default async function runAlfonsobotChat(
+  userInput: string,
+  history: InputContent[] | undefined
+) {
   const genAI = new GoogleGenerativeAI(API_KEY);
   const model = genAI.getGenerativeModel({ model: MODEL_NAME });
 
   const generationConfig = {
-    temperature: 0.1,
+    temperature: 0.9,
     topK: 1,
     topP: 1,
     maxOutputTokens: 2048,
@@ -39,7 +46,7 @@ export default async function runAlfonsobotChat(userInput: string) {
   const chat = model.startChat({
     generationConfig,
     safetySettings,
-    history: alfonsobotHistory,
+    history,
   });
 
   const result = await chat.sendMessage(userInput);

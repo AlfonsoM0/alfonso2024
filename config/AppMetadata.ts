@@ -26,7 +26,7 @@ export const app_metadata: Metadata = {
   keywords: APP_KEYWORDS,
   icons: {
     icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.webp',
+    shortcut: '/android-chrome-192x192.webp',
     apple: '/apple-touch-icon.webp',
   },
 
@@ -85,6 +85,7 @@ export const app_metadata: Metadata = {
     description: APP_DESCRIPTION,
   },
 };
+
 export const app_viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },

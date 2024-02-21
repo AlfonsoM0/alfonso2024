@@ -4,18 +4,18 @@
   "display": "minimal-ui",
   "orientation": "any",
   "scope": "/",
-  "start_url": "https://alfonso.ar",
+  "start_url": "http://localhost:3000",
   "name": "Alfonso | Web Developer",
   "short_name": "Alfonso Dev",
   "description": "Information and consultations about Alfonso, web developer.",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
+      "src": "/android-chrome-192x192.webp",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/android-chrome-512x512.png",
+      "src": "/android-chrome-512x512.webp",
       "sizes": "512x512",
       "type": "image/png"
     }
@@ -25,22 +25,22 @@
       "name": "Message to Alfonso",
       "short_name": "Message",
       "description": "Send a message to Alfonso.",
-      "url": "https://alfonso.ar/contact",
+      "url": "http://localhost:3000/contact",
       "icons": [
         {
-          "src": "/android-chrome-192x192.png",
+          "src": "/android-chrome-192x192.webp",
           "sizes": "192x192"
         }
       ]
     },
     {
-      "name": "RPG-Test",
-      "short_name": "RPG",
-      "description": "Crear un personaje (beta)",
-      "url": "https://alfonso.ar/rpg",
+      "name": "AlfonsoBot Chat",
+      "short_name": "AlfonsoBot",
+      "description": "Chat with an AI about Alfonso.",
+      "url": "http://localhost:3000/alfonsobot",
       "icons": [
         {
-          "src": "/android-chrome-192x192.png",
+          "src": "/android-chrome-192x192.webp",
           "sizes": "192x192"
         }
       ]
@@ -48,7 +48,7 @@
   ],
   "screenshots": [
     {
-      "src": "/AlfonsoApp.png",
+      "src": "/alfonso-app.webp",
       "type": "image/png",
       "sizes": "450x800"
     }

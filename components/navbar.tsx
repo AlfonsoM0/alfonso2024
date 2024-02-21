@@ -21,7 +21,7 @@ import NextLink from 'next/link';
 import clsx from 'clsx';
 
 import { ThemeSwitch } from '@/components/theme-switch';
-import AlfonsoLogo from '@public/android-chrome-512x512.png';
+import AlfonsoLogo from '@public/android-chrome-512x512.webp';
 import { LanguageIcon } from '@components/icons';
 
 import useUserStore from '@/store/userStore';
@@ -51,7 +51,7 @@ export const Navbar = () => {
       <NavbarContent className="basis-1/5 sm:basis-full" justify="center">
         <ul className="hidden md:flex gap-4 justify-start ml-2">
           {navLinks.map((item) => (
-            <NavbarItem key={item.url}>
+            <NavbarItem key={item.url} aria-label={item.name}>
               <NextLink
                 className={clsx(
                   linkStyles({ color: 'foreground' }),
@@ -86,8 +86,8 @@ export const Navbar = () => {
 
       <NavbarMenu>
         <div className="mx-4 mt-2 flex flex-col gap-2">
-          {navLinks.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
+          {navLinks.map((item) => (
+            <NavbarMenuItem key={item.url} aria-label={item.name}>
               <Link color="foreground" href={item.url} size="lg">
                 {item.name}
               </Link>

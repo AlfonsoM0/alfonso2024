@@ -1,6 +1,6 @@
 {
   "name": "next-app-template",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -25,6 +25,7 @@
     "framer-motion": "^10.16.4",
     "intl-messageformat": "^10.5.0",
     "lucide-react": "^0.331.0",
+    "markdown-to-jsx": "^7.4.1",
     "next": "14.0.2",
     "next-themes": "^0.2.1",
     "nodemailer": "^6.9.9",
@@ -47,7 +48,6 @@
     "@types/react-dom": "18.2.7",
     "eslint": "8.48.0",
     "eslint-config-next": "14.0.2",
-    "markdown-to-jsx": "^7.4.1",
     "typescript": "5.0.4",
     "webpack": "^5.90.3"
   }

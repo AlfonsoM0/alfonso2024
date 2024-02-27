@@ -23,7 +23,10 @@ export default function Alfonsobot() {
             {chat.map((dialog, i) => {
               if (dialog.role === 'model')
                 return (
-                  <DialogBot key={i} response={<Markdown>{dialog.parts as string}</Markdown>} />
+                  <DialogBot
+                    key={i}
+                    response={<Markdown options={mdOpt}>{dialog.parts as string}</Markdown>}
+                  />
                 );
               else return <DialogUser key={i} response={<p>{dialog.parts as string}</p>} />;
             })}
@@ -43,3 +46,20 @@ export default function Alfonsobot() {
     </>
   );
 }
+
+const mdOpt = {
+  overrides: {
+    strong: {
+      props: { className: 'text-blue-500 text-lg' },
+    },
+    li: {
+      props: { className: 'list-disc ml-5' },
+    },
+    p: {
+      props: { className: 'mb-2' },
+    },
+    a: {
+      props: { className: 'text-blue-500' },
+    },
+  },
+};

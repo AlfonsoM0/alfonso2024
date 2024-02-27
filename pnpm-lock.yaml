@@ -53,6 +53,9 @@ dependencies:
   lucide-react:
     specifier: ^0.331.0
     version: 0.331.0(react@18.2.0)
+  markdown-to-jsx:
+    specifier: ^7.4.1
+    version: 7.4.1(react@18.2.0)
   next:
     specifier: 14.0.2
     version: 14.0.2(@babel/core@7.23.9)(react-dom@18.2.0)(react@18.2.0)
@@ -115,9 +118,6 @@ devDependencies:
   eslint-config-next:
     specifier: 14.0.2
     version: 14.0.2(eslint@8.48.0)(typescript@5.0.4)
-  markdown-to-jsx:
-    specifier: ^7.4.1
-    version: 7.4.1(react@18.2.0)
   typescript:
     specifier: 5.0.4
     version: 5.0.4
@@ -6302,7 +6302,7 @@ packages:
       react: '>= 0.14.0'
     dependencies:
       react: 18.2.0
-    dev: true
+    dev: false
 
   /merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}

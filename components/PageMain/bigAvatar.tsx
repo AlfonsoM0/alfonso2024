@@ -12,7 +12,7 @@ export default function BigAvatar() {
     <Avatar
       src={theme === 'light' ? yoFormal2.src : yoFormal1.src}
       alt="AlfonsoM0 avatar"
-      className="w-60 h-60 text-large bg-transparent shadow-2xl shadow-black dark:shadow-white"
+      className="w-60 h-60 text-large bg-transparent shadow-2xl shadow-black dark:shadow-white hover:bg-[rgba(255,255,255,0.8)] hover:dark:bg-[rgba(0,0,0,0.5)]"
     />
   );
 }

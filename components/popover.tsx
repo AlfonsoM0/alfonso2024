@@ -12,7 +12,7 @@ export default function CustomPopover({
 }) {
   return (
     <Popover placement="top" showArrow={true}>
-      <PopoverTrigger className="bg-transparent h-auto w-auto">
+      <PopoverTrigger className="bg-transparent h-auto w-auto hover:bg-white">
         <Button>{children}</Button>
       </PopoverTrigger>
       <PopoverContent>

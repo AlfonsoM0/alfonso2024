@@ -39,7 +39,7 @@ const es = {
     `Analizar situaciones o datos para encontrar soluciones creativas.`,
     `Comprender sobre las tecnologías empresariales y de la información.`,
   ],
-  contactMe: `Conecta conmigo: `,
+  contactMe: `Conecta conmigo`,
   contactMe_ul: [
     {
       name: 'LinkedIn',
@@ -174,7 +174,7 @@ const en = {
     `Analyzing situations or data to find creative solutions.`,
     `Understanding business and information technologies.`,
   ],
-  contactMe: `Connect with me: `,
+  contactMe: `Connect with me`,
   contactMe_ul: es.contactMe_ul,
   knowMore: `Do you want to know more about me?`,
   alfonsoBot: `Ask AlfonsoBot!`,

@@ -11,15 +11,13 @@ export default function Footer() {
 
   return (
     <section className="container">
-      <footer className="w-full flex flex-wrap items-center justify-center mb-2 m-auto p-3 hover:bg-[rgba(255,255,255,0.8)] hover:dark:bg-[rgba(0,0,0,0.5)] rounded-2xl max-w-fit">
+      <footer className="w-full flex flex-wrap items-center justify-center mb-2 m-auto p-3 hover:bg-[rgba(255,255,255,0.8)] hover:dark:bg-[rgba(0,0,0,0.5)] rounded-2xl max-w-fit transition hover:delay-300">
         <span className="mr-2 text-default-600 text-shadow shadow-white dark:shadow-black">
           {txt[0]}
         </span>
-        <Link className="flex items-center gap-1 text-current" href="#" title="alfonso.ar homepage">
-          <p className="text-primary dark:text-blue-300 text-shadow shadow-white dark:shadow-black">
-            {txt[1]}
-          </p>
-        </Link>
+        <span className="text-primary dark:text-blue-300 text-shadow shadow-white dark:shadow-black">
+          {txt[1]}
+        </span>
       </footer>
     </section>
   );

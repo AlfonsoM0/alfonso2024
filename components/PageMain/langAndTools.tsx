@@ -10,8 +10,8 @@ export default function LangAndTools() {
   const txt = appIsEnglish ? lang.en : lang.es;
 
   return (
-    <>
-      <h2 className="text-2xl text-shadow shadow-white dark:shadow-black">
+    <div className="p-5 m-5 bg-[rgba(255,255,255,0.8)] dark:bg-[rgba(0,0,0,0.5)] rounded-2xl">
+      <h2 className="text-center text-2xl text-shadow shadow-white dark:shadow-black">
         {txt.lenguagesAndTools}
       </h2>
       <div className="max-w-screen-lg flex flex-wrap justify-center my-8">
@@ -29,6 +29,6 @@ export default function LangAndTools() {
           </CustomPopover>
         ))}
       </div>
-    </>
+    </div>
   );
 }

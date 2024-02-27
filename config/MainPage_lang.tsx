@@ -31,7 +31,7 @@ const es = {
     </>
   ),
   presentation_p: `Soy un desarrollador web y un administrador de empresas experimentado. Soy una persona sociable, creativa y analítica que valora la honestidad, la confianza y el respeto.`,
-  talents: `Si está buscando una persona con facilidad para: `,
+  talents: `Si está buscando una persona hábil para: `,
   talents_ul: [
     `Comunicar o enseñar ideas complejas.`,
     `Planear, organizar, dirigir y controlar proyectos.`,

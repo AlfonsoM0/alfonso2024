@@ -14,16 +14,8 @@ export default function Connect() {
       <h2 className={`text-center text-2xl`}>{txt.contactMe}</h2>
       <div className="flex justify-center mt-4">
         {txt.contactMe_ul.map((item, i) => (
-          <CustomPopover key={i} popoverTitle={item.name}>
-            <Link
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="m-3"
-              aria-label={item.name}
-            >
-              {item.icon}
-            </Link>
+          <CustomPopover key={i} popoverTitle={item.name} popoverUrl={item.href}>
+            <div className="m-3">{item.icon}</div>
           </CustomPopover>
         ))}
       </div>

@@ -36,27 +36,11 @@ export default function ProyectCard(proyect: Proyect) {
 
       <CardFooter className="flex flex-wrap justify-center">
         {proyect.lenguagesAndTools_ul.map((item, i) => (
-          <CustomPopover key={i} popoverTitle={item.name}>
-            <Link
-              href={item.href}
-              className="my-1"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={item.name}
-            >
-              {item.icon}
-            </Link>
+          <CustomPopover key={i} popoverTitle={item.name} popoverUrl={item.href}>
+            <div className="my-1">{item.icon}</div>
           </CustomPopover>
         ))}
       </CardFooter>
     </Card>
   );
-}
-
-{
-  /* <ProyectVideo
-  youtubeURL={proyect.projectVideoURL}
-  imgURL={proyect.projectLinkURL}
-  isVerticalVideo={proyect.isVerticalVideo}
-/> */
 }

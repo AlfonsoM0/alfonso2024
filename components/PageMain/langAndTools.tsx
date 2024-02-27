@@ -3,7 +3,6 @@
 import lang from '@/config/MainPage_lang';
 import useUserStore from '@/store/userStore';
 import CustomPopover from '../popover';
-import Link from 'next/link';
 
 export default function LangAndTools() {
   const { appIsEnglish } = useUserStore((store) => store);
@@ -16,16 +15,8 @@ export default function LangAndTools() {
       </h2>
       <div className="max-w-screen-lg flex flex-wrap justify-center my-4">
         {txt.lenguagesAndTools_ul.map((item, i) => (
-          <CustomPopover key={i} popoverTitle={item.name}>
-            <Link
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="m-1 sm:m-3"
-              aria-label={item.name}
-            >
-              {item.icon}
-            </Link>
+          <CustomPopover key={i} popoverTitle={item.name} popoverUrl={item.href}>
+            <div className="m-1 sm:m-3">{item.icon}</div>
           </CustomPopover>
         ))}
       </div>

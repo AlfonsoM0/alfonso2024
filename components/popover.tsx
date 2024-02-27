@@ -1,14 +1,18 @@
 import React from 'react';
 import { Popover, PopoverTrigger, PopoverContent, Button } from '@nextui-org/react';
+import Link from 'next/link';
+import { Url } from 'next/dist/shared/lib/router/router';
 
 export default function CustomPopover({
   children,
   popoverTitle,
   popoverText,
+  popoverUrl,
 }: {
   children: React.ReactNode;
   popoverTitle?: string;
   popoverText?: string;
+  popoverUrl?: Url;
 }) {
   return (
     <Popover placement="top" showArrow={true}>
@@ -17,8 +21,16 @@ export default function CustomPopover({
       </PopoverTrigger>
       <PopoverContent>
         <div className="px-1 py-2">
-          <div className="text-small font-bold">{popoverTitle}</div>
-          <div className="text-tiny">{popoverText}</div>
+          <Link
+            href={popoverUrl || '#'}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${popoverTitle} link`}
+            className="text-small font-bold"
+          >
+            {popoverTitle}
+          </Link>
+          <p className="text-tiny">{popoverText}</p>
         </div>
       </PopoverContent>
     </Popover>

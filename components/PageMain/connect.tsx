@@ -10,8 +10,8 @@ export default function Connect() {
   const txt = appIsEnglish ? lang.en : lang.es;
 
   return (
-    <div className="flex flex-col text-shadow shadow-white dark:shadow-black p-5 m-5 hover:bg-[rgba(255,255,255,0.8)] hover:dark:bg-[rgba(0,0,0,0.5)] rounded-2xl transition hover:delay-300">
-      <h2 className={`text-center text-2xl`}>{txt.contactMe}</h2>
+    <div className="infocard flex flex-col text-shadow-main">
+      <h2>{txt.contactMe}</h2>
       <div className="flex justify-center mt-4">
         {txt.contactMe_ul.map((item, i) => (
           <CustomPopover key={i} popoverTitle={item.name} popoverUrl={item.href}>

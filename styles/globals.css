@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply text-center uppercase text-2xl;
+  }
+  h2 {
+    @apply text-center text-2xl;
+  }
+}
+
+@layer components {
+  .text-shadow-main {
+    @apply text-shadow shadow-white dark:shadow-black;
+  }
+  .infocard {
+    @apply p-5 m-5 hover:bg-[rgba(255,255,255,0.8)] hover:dark:bg-[rgba(0,0,0,0.5)] rounded-2xl transition hover:delay-500;
+  }
+}
+
 .BackgroundImg {
   position: fixed;
   top: 0;
@@ -10,7 +28,6 @@
   width: 100vw;
   overflow: hidden;
 }
-
 .BackgroundImg-dark {
   z-index: -1;
 }

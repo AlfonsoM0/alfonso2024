@@ -9,8 +9,8 @@ export default function AboutMe1() {
 
   return (
     <div className="">
-      <div className="flex flex-col justify-center text-shadow shadow-white dark:shadow-black max-w-lg p-5 m-5 hover:bg-[rgba(255,255,255,0.8)] hover:dark:bg-[rgba(0,0,0,0.5)] rounded-2xl transition hover:delay-300">
-        <h1 className="text-center uppercase text-2xl">{txt.presentation}</h1>
+      <div className="infocard flex flex-col justify-center text-shadow-main max-w-lg">
+        <h1>{txt.presentation}</h1>
         <p className="mt-4 text-justify">{txt.presentation_p}</p>
       </div>
     </div>

@@ -11,9 +11,7 @@ export default function PageProyects() {
 
   return (
     <>
-      <h1 className="text-center text-4xl text-shadow shadow-white dark:shadow-black">
-        {txt.pageTitle}
-      </h1>
+      <h1 className="text-shadow-main text-4xl">{txt.pageTitle}</h1>
 
       {txt.proyects.map((proyect, i) => (
         <ProyectCard {...proyect} key={i} />

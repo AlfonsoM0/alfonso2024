@@ -15,9 +15,9 @@ import CustomPopover from '../popover';
 export default function ProyectCard(proyect: Proyect) {
   return (
     <Card className={`max-w-screen-xl my-4 bg-[rgba(255,255,255,0.7)] dark:bg-[rgba(0,0,0,0.7)]`}>
-      <CardHeader className="flex gap-3 justify-center text-shadow shadow-white dark:shadow-black">
+      <CardHeader className="flex gap-3 justify-center text-shadow-main">
         <div className="flex flex-col text-center">
-          <h2 className="text-xl">{proyect.name}</h2>
+          <h2>{proyect.name}</h2>
           <p className="text-small text-default-500">{proyect.description}</p>
         </div>
       </CardHeader>

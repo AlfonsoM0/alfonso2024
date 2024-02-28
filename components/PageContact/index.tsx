@@ -78,9 +78,7 @@ export default function ContactForm() {
 
   return (
     <div className="max-w-md m-auto">
-      <h1 className="text-center text-4xl text-shadow shadow-white dark:shadow-black">
-        {txt.pageTitle}
-      </h1>
+      <h1 className="text-shadow-main text-4xl">{txt.pageTitle}</h1>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmir)} className="space-y-8">
           <div className="flex flex-wrap justify-between">

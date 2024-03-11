@@ -6,18 +6,19 @@ import { Button, CircularProgress } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
 import { ResetIcon } from '../icons';
 
-export default function SendInput() {
-  const { appIsEnglish, alfonsobotChat, addChatResponse, clearChatResponses } = useUserStore(
-    (store) => store
-  );
+type SendInputProps = {
+  botErrorMsg: string;
+  buttonTxt: string;
+  placeholder: string;
+};
+
+export default function SendInput(txt: SendInputProps) {
+  const { alfonsobotChat, addChatResponse, clearChatResponses } = useUserStore((store) => store);
 
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const [isBotError, setIsBotError] = useState(false);
-  const botErrorMsg = appIsEnglish
-    ? 'There was an error when processing your message. Check that it is not an inappropriate message and tries again.'
-    : 'Hubo un error al procesar tu mensaje. Comprueba que no sea un mensaje inapropiado e intenta nuevamente.';
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -33,7 +34,7 @@ export default function SendInput() {
     } catch (error) {
       // console.error('Bot Error => ', error);
       setIsBotError(true);
-      addChatResponse({ role: 'model', parts: botErrorMsg });
+      addChatResponse({ role: 'model', parts: txt.botErrorMsg });
     }
 
     setInputText('');
@@ -45,14 +46,11 @@ export default function SendInput() {
     setIsBotError(false);
   }
 
-  const buttonTxt = appIsEnglish ? 'Send' : 'Enviar';
-  const placeholder = appIsEnglish ? 'Write your query...' : 'Escribe tu consulta...';
-
   return (
     <form
       onSubmit={onSubmit}
       className="flex items-center flex-wrap justify-center gap-2 sm:flex-nowrap"
-      aria-label={placeholder}
+      aria-label={txt.placeholder}
     >
       <input
         onChange={(e) => setInputText(e.currentTarget.value)}
@@ -60,8 +58,8 @@ export default function SendInput() {
         disabled={isLoading ? true : false}
         className="w-full border rounded-full py-2 px-4"
         type="text"
-        placeholder={placeholder}
-        aria-label={placeholder}
+        placeholder={txt.placeholder}
+        aria-label={txt.placeholder}
       />
 
       {isLoading ? (
@@ -78,7 +76,7 @@ export default function SendInput() {
             type="submit"
             aria-label="Send"
             className="bg-blue-500 hover:bg-blue-400 dark:bg-blue-800 dark:hover:bg-blue-500 text-white font-medium py-2 px-4 rounded-full disabled:text-slate-500"
-            value={buttonTxt}
+            value={txt.buttonTxt}
           />
           <button
             disabled={isLoading}

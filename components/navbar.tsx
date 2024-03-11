@@ -54,7 +54,7 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarContent className="basis-1/5 sm:basis-full" justify="center">
-        <ul className="hidden md:flex gap-4 justify-start ml-2">
+        <ul className="hidden sm:flex gap-4 justify-start ml-2">
           {navLinks.map((item) => (
             <NavbarItem key={item.url} aria-label={item.name}>
               <NextLink

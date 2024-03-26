@@ -25,8 +25,8 @@ export const app_metadata: Metadata = {
   description: APP_DESCRIPTION,
   keywords: APP_KEYWORDS,
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/android-chrome-192x192.webp',
+    icon: '/android-chrome-192x192.webp',
+    shortcut: '/android-chrome-512x512.webp',
     apple: '/apple-touch-icon.webp',
   },
 

@@ -10,14 +10,21 @@
   "description": "Information and consultations about Alfonso, web developer.",
   "icons": [
     {
+      "src": "/favicon.ico",
+      "sizes": "72x72 96x96 128x128 256x256",
+      "purpose": "maskable"
+    },
+    {
       "src": "/android-chrome-192x192.webp",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/webp",
+      "purpose": "maskable"
     },
     {
       "src": "/android-chrome-512x512.webp",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/webp",
+      "purpose": "maskable"
     }
   ],
   "shortcuts": [
@@ -29,7 +36,9 @@
       "icons": [
         {
           "src": "/android-chrome-192x192.webp",
-          "sizes": "192x192"
+          "sizes": "192x192",
+          "type": "image/webp",
+          "purpose": "maskable"
         }
       ]
     },
@@ -41,7 +50,9 @@
       "icons": [
         {
           "src": "/android-chrome-192x192.webp",
-          "sizes": "192x192"
+          "sizes": "192x192",
+          "type": "image/webp",
+          "purpose": "maskable"
         }
       ]
     }
@@ -50,7 +61,7 @@
     {
       "src": "/alfonso-app.webp",
       "type": "image/png",
-      "sizes": "450x800"
+      "sizes": "600x970"
     }
   ]
 }

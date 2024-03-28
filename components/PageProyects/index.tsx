@@ -1,8 +1,8 @@
 'use client';
 
-import lang from '@/config/Proyects_lang';
+import lang from '@/config/Projects_lang';
 import useUserStore from '@/store/userStore';
-import ProyectCard from './proyectCard';
+import ProyectCard from './projectCard';
 
 export default function PageProyects() {
   const { appIsEnglish } = useUserStore((store) => store);
@@ -13,8 +13,8 @@ export default function PageProyects() {
     <>
       <h1 className="text-shadow-main text-4xl">{txt.pageTitle}</h1>
 
-      {txt.proyects.map((proyect, i) => (
-        <ProyectCard {...proyect} key={i} />
+      {txt.projects.map((project, i) => (
+        <ProyectCard {...project} key={i} />
       ))}
     </>
   );

@@ -24,6 +24,122 @@ import PrismaIcon from '@components/icons/PrismaIcon';
 const socialIconsWidth = 80;
 const toolsIconWidth = 60;
 
+const languagesAndToolsData = [
+  {
+    name: 'JavaScript',
+    icon: <JavaScriptIcon Width={toolsIconWidth} />,
+    href: 'https://wikipedia.org/wiki/JavaScript',
+  },
+  {
+    name: 'HTML (HyperText Markup Language)',
+    icon: <HTMLIcon Width={toolsIconWidth} />,
+    href: 'https://wikipedia.org/wiki/HTML',
+  },
+  {
+    name: 'CSS (Cascading Style Sheets)',
+    icon: <CSSIcon Width={toolsIconWidth} />,
+    href: 'https://wikipedia.org/wiki/CSS',
+  },
+  {
+    name: 'TypeScript',
+    icon: <TypeScriptIcon Width={toolsIconWidth} />,
+    href: 'https://www.typescriptlang.org/',
+  },
+  {
+    name: 'SEO (Search Engine Optimization)',
+    icon: <SEOIcon Width={toolsIconWidth} />,
+    href: 'https://wikipedia.org/wiki/Search_engine_optimization',
+  },
+  {
+    name: 'Node.js',
+    icon: <NodeJsIcon Width={toolsIconWidth} />,
+    href: 'https://nodejs.org/',
+  },
+  {
+    name: 'NPM (Node Package Manager)',
+    icon: <NPMIcon Width={toolsIconWidth} />,
+    href: 'https://www.npmjs.com/',
+  },
+  {
+    name: 'PNPM (Performant Node Package Manager)',
+    icon: <PNPMIcon Width={toolsIconWidth} />,
+    href: 'https://pnpm.io//',
+  },
+  {
+    name: 'Git',
+    icon: <GitIcon Width={toolsIconWidth} />,
+    href: 'https://git-scm.com/',
+  },
+  {
+    name: 'React.js',
+    icon: <ReactIcon Width={toolsIconWidth} />,
+    href: 'https://es.reactjs.org/',
+  },
+  {
+    name: 'Next.js',
+    icon: <NextJsIcon Width={toolsIconWidth} />,
+    href: 'https://nextjs.org/',
+  },
+  {
+    name: 'Redux',
+    icon: <ReduxIcon Width={toolsIconWidth} />,
+    href: 'https://redux.js.org/',
+  },
+  {
+    name: 'Prisma (TypeScript ORM)',
+    icon: <PrismaIcon Width={toolsIconWidth} />,
+    href: 'https://www.prisma.io/',
+  },
+  {
+    name: 'TRPC (Typescript Remote Procedure Call)',
+    icon: <TRPCIcon Width={toolsIconWidth} />,
+    href: 'https://trpc.io/',
+  },
+  {
+    name: 'PostgreSQL',
+    icon: <PostgreSQLIcon Width={toolsIconWidth} />,
+    href: 'https://www.postgresql.org/',
+  },
+  {
+    name: 'Sequelize (JavaScript ORM)',
+    icon: <SequelizeIcon Width={toolsIconWidth} />,
+    href: 'https://sequelize.org/',
+  },
+  {
+    name: 'SQL',
+    icon: <SQLIcon Width={toolsIconWidth} />,
+    href: 'https://wikipedia.org/wiki/SQL',
+  },
+  {
+    name: 'No-SQL',
+    icon: <NoSQLIcon Width={toolsIconWidth} />,
+    href: 'https://wikipedia.org/wiki/NoSQL',
+  },
+  {
+    name: 'Express.js',
+    icon: <ExpressIcon Width={toolsIconWidth} />,
+    href: 'https://expressjs.com/',
+  },
+  {
+    name: 'Postman',
+    icon: <PostManIcon Width={toolsIconWidth} />,
+    href: 'https://www.postman.com/',
+  },
+];
+
+const contactMeData = [
+  {
+    name: 'LinkedIn',
+    icon: <LinkedInIcon Width={socialIconsWidth} />,
+    href: 'https://www.linkedin.com/in/alfonsomontesdeoca/',
+  },
+  {
+    name: 'GitHub',
+    icon: <GitHubIcon Width={socialIconsWidth} />,
+    href: 'https://github.com/AlfonsoM0',
+  },
+];
+
 const es = {
   presentation: (
     <>
@@ -34,129 +150,17 @@ const es = {
   talents: `Si está buscando una persona hábil para: `,
   talents_ul: [
     `Comunicar o enseñar ideas complejas.`,
-    `Planear, organizar, dirigir y controlar proyectos.`,
+    `Planificar, organizar, dirigir y controlar proyectos.`,
     `Desarrollar códigos de lógicas complejas en backend y frontend.`,
     `Analizar situaciones o datos para encontrar soluciones creativas.`,
     `Comprender sobre las tecnologías empresariales y de la información.`,
   ],
   contactMe: `Conecta conmigo`,
-  contactMe_ul: [
-    {
-      name: 'LinkedIn',
-      icon: <LinkedInIcon Width={socialIconsWidth} />,
-      href: 'https://www.linkedin.com/in/alfonsomontesdeoca/',
-    },
-    {
-      name: 'GitHub',
-      icon: <GitHubIcon Width={socialIconsWidth} />,
-      href: 'https://github.com/AlfonsoM0',
-    },
-  ],
+  contactMe_ul: contactMeData,
   knowMore: `¿Quieres saber más sobre mí?`,
   alfonsoBot: `¡Pregúntele a AlfonsoBot!`,
   lenguagesAndTools: `Lenguajes y herramientas`,
-  lenguagesAndTools_ul: [
-    {
-      name: 'JavaScript',
-      icon: <JavaScriptIcon Width={toolsIconWidth} />,
-      href: 'https://wikipedia.org/wiki/JavaScript',
-    },
-    {
-      name: 'HTML (HyperText Markup Language)',
-      icon: <HTMLIcon Width={toolsIconWidth} />,
-      href: 'https://wikipedia.org/wiki/HTML',
-    },
-    {
-      name: 'CSS (Cascading Style Sheets)',
-      icon: <CSSIcon Width={toolsIconWidth} />,
-      href: 'https://wikipedia.org/wiki/CSS',
-    },
-    {
-      name: 'TypeScript',
-      icon: <TypeScriptIcon Width={toolsIconWidth} />,
-      href: 'https://www.typescriptlang.org/',
-    },
-    {
-      name: 'SEO (Search Engine Optimization)',
-      icon: <SEOIcon Width={toolsIconWidth} />,
-      href: 'https://wikipedia.org/wiki/Search_engine_optimization',
-    },
-    {
-      name: 'Node.js',
-      icon: <NodeJsIcon Width={toolsIconWidth} />,
-      href: 'https://nodejs.org/',
-    },
-    {
-      name: 'NPM (Node Package Manager)',
-      icon: <NPMIcon Width={toolsIconWidth} />,
-      href: 'https://www.npmjs.com/',
-    },
-    {
-      name: 'PNPM (Performant Node Package Manager)',
-      icon: <PNPMIcon Width={toolsIconWidth} />,
-      href: 'https://pnpm.io//',
-    },
-    {
-      name: 'Git',
-      icon: <GitIcon Width={toolsIconWidth} />,
-      href: 'https://git-scm.com/',
-    },
-    {
-      name: 'React.js',
-      icon: <ReactIcon Width={toolsIconWidth} />,
-      href: 'https://es.reactjs.org/',
-    },
-    {
-      name: 'Next.js',
-      icon: <NextJsIcon Width={toolsIconWidth} />,
-      href: 'https://nextjs.org/',
-    },
-    {
-      name: 'Redux',
-      icon: <ReduxIcon Width={toolsIconWidth} />,
-      href: 'https://redux.js.org/',
-    },
-    {
-      name: 'Prisma (TypeScript ORM)',
-      icon: <PrismaIcon Width={toolsIconWidth} />,
-      href: 'https://www.prisma.io/',
-    },
-    {
-      name: 'TRPC (Typescript Remote Procedure Call)',
-      icon: <TRPCIcon Width={toolsIconWidth} />,
-      href: 'https://trpc.io/',
-    },
-    {
-      name: 'PostgreSQL',
-      icon: <PostgreSQLIcon Width={toolsIconWidth} />,
-      href: 'https://www.postgresql.org/',
-    },
-    {
-      name: 'Sequelize (JavaScript ORM)',
-      icon: <SequelizeIcon Width={toolsIconWidth} />,
-      href: 'https://sequelize.org/',
-    },
-    {
-      name: 'SQL',
-      icon: <SQLIcon Width={toolsIconWidth} />,
-      href: 'https://wikipedia.org/wiki/SQL',
-    },
-    {
-      name: 'No-SQL',
-      icon: <NoSQLIcon Width={toolsIconWidth} />,
-      href: 'https://wikipedia.org/wiki/NoSQL',
-    },
-    {
-      name: 'Express.js',
-      icon: <ExpressIcon Width={toolsIconWidth} />,
-      href: 'https://expressjs.com/',
-    },
-    {
-      name: 'Postman',
-      icon: <PostManIcon Width={toolsIconWidth} />,
-      href: 'https://www.postman.com/',
-    },
-  ],
+  lenguagesAndTools_ul: languagesAndToolsData,
 };
 
 const en = {
@@ -168,18 +172,18 @@ const en = {
   presentation_p: `I am a web developer and an experienced business administrator. I am a sociable, creative and analytical person who values honesty, trust and respect.`,
   talents: `If you are looking for someone proficient at: `,
   talents_ul: [
-    `Communicateing or teaching complex ideas.`,
-    `Planing, organizing, directing and controling.`,
+    `Communicating or teaching complex ideas.`,
+    `Planning, organising (or organizing), directing and controlling.`,
     `Developing complex logic codes in Backend and Frontend.`,
     `Analyzing situations or data to find creative solutions.`,
     `Understanding business and information technologies.`,
   ],
   contactMe: `Connect with me`,
-  contactMe_ul: es.contactMe_ul,
+  contactMe_ul: contactMeData,
   knowMore: `Do you want to know more about me?`,
   alfonsoBot: `Ask AlfonsoBot!`,
   lenguagesAndTools: `Languages and Tools`,
-  lenguagesAndTools_ul: es.lenguagesAndTools_ul,
+  lenguagesAndTools_ul: languagesAndToolsData,
 };
 
 const lang = { es, en };

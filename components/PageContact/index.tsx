@@ -71,7 +71,7 @@ export default function ContactForm() {
     return (
       <div className="h-full flex justify-center items-center">
         <Button variant={'outline'} onClick={() => setIsSubmited(false)}>
-          {txt.send_success}
+          {txt.sendSuccess}
         </Button>
       </div>
     );
@@ -89,7 +89,7 @@ export default function ContactForm() {
                 <FormItem className="mt-8 w-full sm:max-w-[220px]">
                   {/* <FormLabel>{txt.input_name}</FormLabel> */}
                   <FormControl>
-                    <Input placeholder={txt.input_name} {...field} />
+                    <Input placeholder={txt.inputName} {...field} />
                   </FormControl>
                   {/* <FormDescription>.</FormDescription> */}
                   <FormMessage />
@@ -103,7 +103,7 @@ export default function ContactForm() {
                 <FormItem className="mt-8 w-full sm:max-w-[220px]">
                   {/* <FormLabel>{txt.input_email}</FormLabel> */}
                   <FormControl>
-                    <Input placeholder={txt.input_email} {...field} />
+                    <Input placeholder={txt.inputEmail} {...field} />
                   </FormControl>
                   {/* <FormDescription>.</FormDescription> */}
                   <FormMessage />
@@ -118,7 +118,7 @@ export default function ContactForm() {
               <FormItem>
                 {/* <FormLabel>{txt.input_subject}</FormLabel> */}
                 <FormControl>
-                  <Input placeholder={txt.input_subject} {...field} />
+                  <Input placeholder={txt.inputSubject} {...field} />
                 </FormControl>
                 {/* <FormDescription>.</FormDescription> */}
                 <FormMessage />
@@ -132,7 +132,7 @@ export default function ContactForm() {
               <FormItem>
                 {/* <FormLabel>{txt.input_consult}</FormLabel> */}
                 <FormControl>
-                  <Textarea placeholder={txt.input_consult} {...field} />
+                  <Textarea placeholder={txt.inputConsult} {...field} />
                 </FormControl>
                 {/* <FormDescription>.</FormDescription> */}
                 <FormMessage />
@@ -140,13 +140,13 @@ export default function ContactForm() {
             )}
           />
           <Button type="submit" size={'fullWidth'} variant={'outline'}>
-            {txt.button_send}
+            {txt.buttonSend}
           </Button>
 
           {/* Emial sending error */}
           {isSubmited && isError ? (
             <p className="text-sm font-medium text-red-500 dark:text-yellow-400 text-center text-shadow shadow-white dark:shadow-black">
-              {txt.send_error}
+              {txt.sendError}
             </p>
           ) : null}
         </form>

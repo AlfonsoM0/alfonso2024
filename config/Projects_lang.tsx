@@ -17,7 +17,7 @@ const toolsIconWidth = 30;
 
 const es = {
   pageTitle: 'Proyectos',
-  proyects: [
+  projects: [
     {
       name: 'Mujer App',
       description: 'App para comunidad de mujeres emprendedoras de México.',
@@ -119,17 +119,17 @@ const es = {
   ],
 };
 
-export type Proyect = (typeof es.proyects)[0];
+export type Project = (typeof es.projects)[0];
 
 const en = {
   pageTitle: 'Proyects',
-  proyects: [
+  projects: [
     {
-      ...(es.proyects.find((p) => p.name === 'Mujer App') as Proyect),
+      ...(es.projects.find((p) => p.name === 'Mujer App') as Project),
       description: 'App for entrepreneurial women in Mexico.',
     },
     {
-      ...(es.proyects.find((p) => p.name === 'Doctorine App') as Proyect),
+      ...(es.projects.find((p) => p.name === 'Doctorine App') as Project),
       description: 'Patient management application, shifts and consultations for dentist doctors.',
     },
   ],

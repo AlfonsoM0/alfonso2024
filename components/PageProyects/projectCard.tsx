@@ -8,11 +8,11 @@ import {
   CardBody,
   Link,
 } from '@nextui-org/react';
-import { Proyect } from '@/config/Proyects_lang';
-import ProyectVideo from './ProyectVideo';
+import { Project } from '@/config/Projects_lang';
+import ProjectVideo from './projectVideo';
 import CustomPopover from '../popover';
 
-export default function ProyectCard(proyect: Proyect) {
+export default function ProjectCard(proyect: Project) {
   return (
     <Card className={`max-w-screen-xl my-4 bg-[rgba(255,255,255,0.7)] dark:bg-[rgba(0,0,0,0.7)]`}>
       <CardHeader className="flex gap-3 justify-center text-shadow-main">
@@ -25,7 +25,7 @@ export default function ProyectCard(proyect: Proyect) {
       <Divider />
 
       <CardBody className="">
-        <ProyectVideo
+        <ProjectVideo
           youtubeURL={proyect.projectVideoURL}
           imgURL={proyect.projectLinkURL}
           isVerticalVideo={proyect.isVerticalVideo}

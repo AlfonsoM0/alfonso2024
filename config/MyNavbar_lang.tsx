@@ -26,8 +26,8 @@ const en = {
   helloBot: "Hi, I'm AlfonsoBot!",
   navLinks: [
     {
-      name: 'Proyects',
-      url: '/proyects',
+      name: 'Projects',
+      url: '/projects',
     },
     {
       name: 'Alfonso',

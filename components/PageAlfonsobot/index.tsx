@@ -39,9 +39,9 @@ export default function Alfonsobot() {
       </div>
       <div className="p-2 mx-8 mt-2 border border-primary-100 rounded-lg text-center">
         <p className="text-sm">
-          <strong>{txt.disclamer}</strong>
+          <strong>{txt.disclaimer}</strong>
         </p>
-        <p className="text-xs">{txt.disclamerTxt}</p>
+        <p className="text-xs">{txt.disclaimerTxt}</p>
       </div>
     </>
   );

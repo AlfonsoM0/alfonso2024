@@ -46,8 +46,14 @@ export const Navbar = () => {
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
-          <NextLink className="flex justify-start items-center gap-1" href="/">
-            <Image alt="Alfonso Logo" src={AlfonsoLogo.src} width={32} height={32} />
+          <NextLink className="flex justify-start items-center gap-1" href="/" title={`Home`}>
+            <Image
+              title="Alfonso Logo"
+              alt="Alfonso Logo"
+              src={AlfonsoLogo.src}
+              width={32}
+              height={32}
+            />
             <p className="font-bold text-inherit">{txt.hello}</p>
           </NextLink>
         </NavbarBrand>
@@ -63,6 +69,7 @@ export const Navbar = () => {
                   'data-[active=true]:text-primary data-[active=true]:font-medium'
                 )}
                 color="foreground"
+                title={item.name}
                 href={item.url}
               >
                 {item.name}
@@ -93,7 +100,7 @@ export const Navbar = () => {
         <div className="mx-4 mt-10 flex flex-col items-center gap-10">
           {navLinks.map((item) => (
             <NavbarMenuItem key={item.url} aria-label={item.name}>
-              <Link color="foreground" href={item.url} size="lg">
+              <Link color="foreground" title={item.name} href={item.url} size="lg">
                 {item.name}
               </Link>
             </NavbarMenuItem>

@@ -41,6 +41,15 @@ export default function ProyectVideo({
       ></iframe>
     );
   else if (imgURL)
-    return <Image alt="Proyect Image" src={imgURL} width={100} height={100} style={VideoStyle} />;
+    return (
+      <Image
+        title="Proyect Image"
+        alt="Proyect Image"
+        src={imgURL}
+        width={100}
+        height={100}
+        style={VideoStyle}
+      />
+    );
   else return <div></div>;
 }

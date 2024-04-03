@@ -14,6 +14,7 @@ export default function AlfonsobotResponse({
           height={32}
           className="rounded-full mr-2"
           src={AlfonsoBotIcon.src}
+          title="AlfonsoBot Avatar"
           alt="AlfonsoBot Avatar"
         />
         <div className="font-medium">AlfonsoBot</div>

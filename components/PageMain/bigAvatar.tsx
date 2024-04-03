@@ -11,7 +11,8 @@ export default function BigAvatar() {
   return (
     <Avatar
       src={theme === 'light' ? yoFormal2.src : yoFormal1.src}
-      alt="AlfonsoM0 avatar"
+      title="AlfonsoM0 avatar image"
+      alt="AlfonsoM0 avatar image"
       className="infocard w-60 h-60 m-0 p-0 bg-transparent shadow-2xl shadow-black dark:shadow-white"
     />
   );

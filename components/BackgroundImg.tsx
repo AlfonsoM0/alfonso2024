@@ -31,6 +31,7 @@ export default function BackgroundImg({
     <div className={`BackgroundImg BackgroundImg-${type}`}>
       <Image
         priority
+        title={alt}
         alt={alt}
         src={src}
         placeholder="empty"

@@ -173,7 +173,7 @@ const en = {
   talents: `If you are looking for someone proficient at: `,
   talents_ul: [
     `Communicating or teaching complex ideas.`,
-    `Planning, organising (or organizing), directing and controlling.`,
+    `Planning, organising, directing and controlling.`,
     `Developing complex logic codes in Backend and Frontend.`,
     `Analyzing situations or data to find creative solutions.`,
     `Understanding business and information technologies.`,

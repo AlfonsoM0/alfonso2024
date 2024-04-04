@@ -1,3 +1,4 @@
+import { ComponentProps } from 'react';
 import AudioOffIcon from './AudioOffIcon';
 import AudioOnIcon from './AudioOnIcon';
 import CSSIcon from './CSSIcon';
@@ -10,52 +11,188 @@ import JavaScriptIcon from './JavaScriptIcon';
 import LanguageIcon from './LanguageIcon';
 import LinkedInIcon from './LinkedInIcon';
 import MoonIcon from './MoonIcon';
-import NPMIcon from './NPMIcon';
 import NextJsIcon from './NextJsIcon';
-import NoSQLIcon from './NoSQLIcon';
 import NodeJsIcon from './NodeJsIcon';
+import NoSQLIcon from './NoSQLIcon';
+import NPMIcon from './NPMIcon';
 import PNPMIcon from './PNPMIcon';
-import PostManIcon from './PostManIcon';
-import PostgreSQLIcon from './PostgreSQLIcon';
+import PosgreSQLIcon from './PostgreSQLIcon';
+import PostmanIcon from './PostManIcon';
 import PrismaIcon from './PrismaIcon';
 import ReactIcon from './ReactIcon';
 import ReduxIcon from './ReduxIcon';
 import ResetIcon from './ResetIcon';
 import SEOIcon from './SEOIcon';
-import SQLIcon from './SQLIcon';
 import SequelizeIcon from './SequelizeIcon';
+import SQLIcon from './SQLIcon';
 import SunIcon from './SunIcon';
 import TRPCIcon from './TRPCIcon';
-import TypeScriptIcon from './TypeScriptIcon';
+import TyepeScriptIcon from './TypeScriptIcon';
 
-export {
-  AudioOffIcon,
-  AudioOnIcon,
-  CSSIcon,
-  DownloadIcon,
-  ExpressIcon,
-  GitHubIcon,
-  GitIcon,
-  HTMLIcon,
-  JavaScriptIcon,
-  LanguageIcon,
-  LinkedInIcon,
-  MoonIcon,
-  NPMIcon,
-  NextJsIcon,
-  NoSQLIcon,
-  NodeJsIcon,
-  PNPMIcon,
-  PostManIcon,
-  PostgreSQLIcon,
-  PrismaIcon,
-  ReactIcon,
-  ReduxIcon,
-  ResetIcon,
-  SEOIcon,
-  SQLIcon,
-  SequelizeIcon,
-  SunIcon,
-  TRPCIcon,
-  TypeScriptIcon,
+export type SvgProps = ComponentProps<'svg'>;
+
+type IconTitle =
+  | 'AudioOff'
+  | 'AudioOn'
+  | 'CSS'
+  | 'Download'
+  | 'Express.js'
+  | 'GitHub'
+  | 'Git'
+  | 'HTML'
+  | 'JavaScript'
+  | 'Language'
+  | 'LinkedIn'
+  | 'Moon'
+  | 'Next.js'
+  | 'Node.js'
+  | 'No-SQL'
+  | 'NPM'
+  | 'PNPM'
+  | 'PostgreSQL'
+  | 'Postman'
+  | 'Prisma ORM'
+  | 'React.js'
+  | 'Redux'
+  | 'Reset'
+  | 'SEO'
+  | 'Sequelize ORM'
+  | 'SQL'
+  | 'Sun'
+  | 'tRPC'
+  | 'TypeScript';
+
+type IconProps = SvgProps & {
+  title: IconTitle;
+  width: number;
 };
+
+type Icons = {
+  title: IconTitle;
+  svg: (props: SvgProps) => JSX.Element;
+};
+
+// https://heroicons.com/ | https://www.svgrepo.com
+const icons: Icons[] = [
+  {
+    title: 'AudioOff',
+    svg: AudioOffIcon,
+  },
+  {
+    title: 'AudioOn',
+    svg: AudioOnIcon,
+  },
+  {
+    title: 'CSS',
+    svg: CSSIcon,
+  },
+  {
+    title: 'Download',
+    svg: DownloadIcon,
+  },
+  {
+    title: 'Express.js',
+    svg: ExpressIcon,
+  },
+  {
+    title: 'GitHub',
+    svg: GitHubIcon,
+  },
+  {
+    title: 'Git',
+    svg: GitIcon,
+  },
+  {
+    title: 'HTML',
+    svg: HTMLIcon,
+  },
+  {
+    title: 'JavaScript',
+    svg: JavaScriptIcon,
+  },
+  {
+    title: 'Language',
+    svg: LanguageIcon,
+  },
+  {
+    title: 'LinkedIn',
+    svg: LinkedInIcon,
+  },
+  {
+    title: 'Moon',
+    svg: MoonIcon,
+  },
+  {
+    title: 'Next.js',
+    svg: NextJsIcon,
+  },
+  {
+    title: 'Node.js',
+    svg: NodeJsIcon,
+  },
+  {
+    title: 'No-SQL',
+    svg: NoSQLIcon,
+  },
+  {
+    title: 'NPM',
+    svg: NPMIcon,
+  },
+  {
+    title: 'PNPM',
+    svg: PNPMIcon,
+  },
+  {
+    title: 'PostgreSQL',
+    svg: PosgreSQLIcon,
+  },
+  {
+    title: 'Postman',
+    svg: PostmanIcon,
+  },
+  {
+    title: 'Prisma ORM',
+    svg: PrismaIcon,
+  },
+  {
+    title: 'React.js',
+    svg: ReactIcon,
+  },
+  {
+    title: 'Redux',
+    svg: ReduxIcon,
+  },
+  {
+    title: 'Reset',
+    svg: ResetIcon,
+  },
+  {
+    title: 'SEO',
+    svg: SEOIcon,
+  },
+  {
+    title: 'Sequelize ORM',
+    svg: SequelizeIcon,
+  },
+  {
+    title: 'SQL',
+    svg: SQLIcon,
+  },
+  {
+    title: 'Sun',
+    svg: SunIcon,
+  },
+  {
+    title: 'tRPC',
+    svg: TRPCIcon,
+  },
+  {
+    title: 'TypeScript',
+    svg: TyepeScriptIcon,
+  },
+];
+
+export default function Icon(props: IconProps) {
+  const icon = icons.find((i) => i.title === props.title);
+  return icon ? icon.svg({ ...props, width: props.width, height: props.width }) : <></>;
+}

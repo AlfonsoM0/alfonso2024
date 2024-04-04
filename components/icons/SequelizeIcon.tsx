@@ -1,31 +1,16 @@
-import { CSSProperties } from 'react';
+import { SvgProps } from '.';
 
-export default function AudioOffIcon({
-  Width,
-  Style,
-  ClassName,
-}: {
-  Width: number;
-  Style?: CSSProperties;
-  ClassName?: string;
-}) {
-  // https://heroicons.com/ | https://www.svgrepo.com
-  // style={Style}
-  // width={Width}
-  // height={Width}
-  // className={ClassName}
+export default function SequelizeIcon(props: SvgProps) {
   return (
     <svg
-      style={Style}
-      width={Width}
-      height={Width}
-      className={ClassName}
       viewBox="-20 0 296 296"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid"
       fill="#000000"
+      {...props}
     >
+      <title>Sequelize ORM</title>
       <g strokeWidth="0"></g>
       <g strokeLinecap="round" strokeLinejoin="round"></g>
       <g>

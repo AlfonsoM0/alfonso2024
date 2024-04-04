@@ -1,32 +1,17 @@
-import { CSSProperties } from 'react';
+import { SvgProps } from '.';
 
-export default function AudioOffIcon({
-  Width,
-  Style,
-  ClassName,
-}: {
-  Width: number;
-  Style?: CSSProperties;
-  ClassName?: string;
-}) {
-  // https://heroicons.com/ | https://www.svgrepo.com
-  // style={Style}
-  // width={Width}
-  // height={Width}
-  // className={ClassName}
+export default function SEOIcon(props: SvgProps) {
   return (
     <svg
-      style={Style}
-      width={Width}
-      height={Width}
-      className={ClassName}
       version="1.1"
       id="Layer_1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       xmlSpace="preserve"
       fill="#000000"
+      {...props}
     >
+      <title>SEO</title>
       <g strokeWidth="0"></g>
       <g strokeLinecap="round" strokeLinejoin="round"></g>
       <circle style={{ fill: '#003375' }} cx="256" cy="256" r="256"></circle>

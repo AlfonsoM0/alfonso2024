@@ -22,7 +22,7 @@ import clsx from 'clsx';
 
 import { ThemeSwitch } from '@/components/theme-switch';
 import AlfonsoLogo from '@public/android-chrome-512x512.webp';
-import { LanguageIcon } from '@components/icons';
+import Icon from '@components/icons';
 
 import useUserStore from '@/store/userStore';
 import lang from '@config/MyNavbar_lang';
@@ -82,7 +82,7 @@ export const Navbar = () => {
       <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
         <NavbarItem className="hidden sm:flex gap-2">
           <button onClick={changeLanguage} aria-label="Language">
-            <LanguageIcon Width={24} ClassName="text-default-500" />
+            <Icon title="Language" width={24} className="text-default-500" />
           </button>
           <ThemeSwitch />
         </NavbarItem>
@@ -90,7 +90,7 @@ export const Navbar = () => {
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
         <button onClick={changeLanguage} aria-label="Language">
-          <LanguageIcon Width={24} ClassName="text-default-500" />
+          <Icon title="Language" width={24} className="text-default-500" />
         </button>
         <ThemeSwitch />
         <NavbarMenuToggle />

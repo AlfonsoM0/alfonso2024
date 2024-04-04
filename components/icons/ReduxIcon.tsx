@@ -1,30 +1,15 @@
-import { CSSProperties } from 'react';
+import { SvgProps } from '.';
 
-export default function AudioOffIcon({
-  Width,
-  Style,
-  ClassName,
-}: {
-  Width: number;
-  Style?: CSSProperties;
-  ClassName?: string;
-}) {
-  // https://heroicons.com/ | https://www.svgrepo.com
-  // style={Style}
-  // width={Width}
-  // height={Width}
-  // className={ClassName}
+export default function ReduxIcon(props: SvgProps) {
   return (
     <svg
-      style={Style}
-      width={Width}
-      height={Width}
-      className={ClassName}
       viewBox="0 -6 256 256"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid"
       fill="#000000"
+      {...props}
     >
+      <title>Redux</title>
       <g strokeWidth="0"></g>
       <g strokeLinecap="round" strokeLinejoin="round"></g>
       <g>

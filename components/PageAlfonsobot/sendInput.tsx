@@ -4,7 +4,7 @@ import runAlfonsobotChat from '@/server/actions/runAlfonsobotChat';
 import useUserStore from '@/store/userStore';
 import { Button, CircularProgress } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
-import { ResetIcon } from '../icons';
+import Icon from '../icons';
 
 type SendInputProps = {
   botErrorMsg: string;
@@ -87,7 +87,7 @@ export default function SendInput(txt: SendInputProps) {
               isBotError ? 'bg-red-500' : 'bg-danger-600'
             } dark:bg-danger-400 text-white font-medium py-2 px-4 rounded-full ml-1 disabled:text-slate-500`}
           >
-            <ResetIcon Width={20} />
+            <Icon title="Reset" width={20} />
           </button>
         </div>
       )}

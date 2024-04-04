@@ -1,29 +1,9 @@
-import { CSSProperties } from 'react';
+import { SvgProps } from '.';
 
-export default function AudioOffIcon({
-  Width,
-  Style,
-  ClassName,
-}: {
-  Width: number;
-  Style?: CSSProperties;
-  ClassName?: string;
-}) {
-  // https://heroicons.com/ | https://www.svgrepo.com
-  // style={Style}
-  // width={Width}
-  // height={Width}
-  // className={ClassName}
+export default function TRPCIcon(props: SvgProps) {
   return (
-    <svg
-      style={Style}
-      width={Width}
-      height={Width}
-      className={ClassName}
-      viewBox="0 0 512 512"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <title>tRPC</title>
       <rect width="512" height="512" rx="150" fill="#398CCB" />
       <path
         fillRule="evenodd"

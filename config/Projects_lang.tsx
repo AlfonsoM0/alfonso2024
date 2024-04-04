@@ -1,17 +1,4 @@
-import ExpressIcon from '@components/icons/ExpressIcon';
-import GitIcon from '@components/icons/GitIcon';
-import NPMIcon from '@components/icons/NPMIcon';
-import NextJsIcon from '@components/icons/NextJsIcon';
-import NodeJsIcon from '@components/icons/NodeJsIcon';
-import PNPMIcon from '@components/icons/PNPMIcon';
-import PostManIcon from '@components/icons/PostManIcon';
-import PostgreSQLIcon from '@components/icons/PostgreSQLIcon';
-import PrismaIcon from '@components/icons/PrismaIcon';
-import ReactIcon from '@components/icons/ReactIcon';
-import ReduxIcon from '@components/icons/ReduxIcon';
-import SequelizeIcon from '@components/icons/SequelizeIcon';
-import TRPCIcon from '@components/icons/TRPCIcon';
-import TypeScriptIcon from '@components/icons/TypeScriptIcon';
+import Icon from '@/components/icons';
 
 const toolsIconWidth = 30;
 
@@ -24,37 +11,37 @@ const es = {
       lenguagesAndTools_ul: [
         {
           name: 'TypeScript',
-          icon: <TypeScriptIcon Width={toolsIconWidth} />,
+          icon: <Icon title="TypeScript" width={toolsIconWidth} />,
           href: 'https://www.typescriptlang.org/',
         },
         {
           name: 'PNPM (Performant Node Package Manager)',
-          icon: <PNPMIcon Width={toolsIconWidth} />,
+          icon: <Icon title="PNPM" width={toolsIconWidth} />,
           href: 'https://pnpm.io//',
         },
         {
           name: 'Git',
-          icon: <GitIcon Width={toolsIconWidth} />,
+          icon: <Icon title="Git" width={toolsIconWidth} />,
           href: 'https://git-scm.com/',
         },
         {
           name: 'Next.js',
-          icon: <NextJsIcon Width={toolsIconWidth} />,
+          icon: <Icon title="Next.js" width={toolsIconWidth} />,
           href: 'https://nextjs.org/',
         },
         {
           name: 'Redux',
-          icon: <ReduxIcon Width={toolsIconWidth} />,
+          icon: <Icon title="Redux" width={toolsIconWidth} />,
           href: 'https://redux.js.org/',
         },
         {
           name: 'Prisma (TypeScript ORM)',
-          icon: <PrismaIcon Width={toolsIconWidth} />,
+          icon: <Icon title="Prisma ORM" width={toolsIconWidth} />,
           href: 'https://www.prisma.io/',
         },
         {
           name: 'TRPC (Typescript Remote Procedure Call)',
-          icon: <TRPCIcon Width={toolsIconWidth} />,
+          icon: <Icon title="tRPC" width={toolsIconWidth} />,
           href: 'https://trpc.io/',
         },
       ],
@@ -68,47 +55,47 @@ const es = {
       lenguagesAndTools_ul: [
         {
           name: 'Node.js',
-          icon: <NodeJsIcon Width={toolsIconWidth} />,
+          icon: <Icon title="Node.js" width={toolsIconWidth} />,
           href: 'https://nodejs.org/',
         },
         {
           name: 'NPM (Node Package Manager)',
-          icon: <NPMIcon Width={toolsIconWidth} />,
+          icon: <Icon title="NPM" width={toolsIconWidth} />,
           href: 'https://www.npmjs.com/',
         },
         {
           name: 'Git',
-          icon: <GitIcon Width={toolsIconWidth} />,
+          icon: <Icon title="Git" width={toolsIconWidth} />,
           href: 'https://git-scm.com/',
         },
         {
           name: 'React.js',
-          icon: <ReactIcon Width={toolsIconWidth} />,
+          icon: <Icon title="React.js" width={toolsIconWidth} />,
           href: 'https://es.reactjs.org/',
         },
         {
           name: 'Redux',
-          icon: <ReduxIcon Width={toolsIconWidth} />,
+          icon: <Icon title="Redux" width={toolsIconWidth} />,
           href: 'https://redux.js.org/',
         },
         {
           name: 'PostgreSQL',
-          icon: <PostgreSQLIcon Width={toolsIconWidth} />,
+          icon: <Icon title="PostgreSQL" width={toolsIconWidth} />,
           href: 'https://www.postgresql.org/',
         },
         {
-          name: 'Sequelize',
-          icon: <SequelizeIcon Width={toolsIconWidth} />,
+          name: 'Sequelize ORM',
+          icon: <Icon title="Sequelize ORM" width={toolsIconWidth} />,
           href: 'https://sequelize.org/',
         },
         {
           name: 'Express.js',
-          icon: <ExpressIcon Width={toolsIconWidth} />,
+          icon: <Icon title="Express.js" width={toolsIconWidth} />,
           href: 'https://expressjs.com/',
         },
         {
           name: 'Postman',
-          icon: <PostManIcon Width={toolsIconWidth} />,
+          icon: <Icon title="Postman" width={toolsIconWidth} />,
           href: 'https://www.postman.com/',
         },
       ],

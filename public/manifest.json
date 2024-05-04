@@ -6,24 +6,25 @@
   "scope": "/",
   "start_url": "https://alfonso.ar",
   "name": "Alfonso | Web Developer",
-  "short_name": "Alfonso Dev",
+  "short_name": "AlfonsoM0",
   "description": "Information and consultations about Alfonso, web developer.",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "256x256",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/android-chrome-192x192.webp",
-      "sizes": "192x192",
-      "type": "image/webp",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/android-chrome-512x512.webp",
+      "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/webp",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon",
       "purpose": "maskable"
     }
   ],
@@ -35,9 +36,9 @@
       "url": "https://alfonso.ar/contact",
       "icons": [
         {
-          "src": "/android-chrome-192x192.webp",
+          "src": "/android-chrome-192x192.png",
           "sizes": "192x192",
-          "type": "image/webp",
+          "type": "image/png",
           "purpose": "maskable"
         }
       ]
@@ -49,9 +50,9 @@
       "url": "https://alfonso.ar/alfonsobot",
       "icons": [
         {
-          "src": "/android-chrome-192x192.webp",
+          "src": "/android-chrome-192x192.png",
           "sizes": "192x192",
-          "type": "image/webp",
+          "type": "image/png",
           "purpose": "maskable"
         }
       ]
@@ -60,7 +61,7 @@
   "screenshots": [
     {
       "src": "/alfonso-app.webp",
-      "type": "image/png",
+      "type": "image/webp",
       "sizes": "600x970"
     }
   ]

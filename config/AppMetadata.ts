@@ -25,9 +25,9 @@ export const app_metadata: Metadata = {
   description: APP_DESCRIPTION,
   keywords: APP_KEYWORDS,
   icons: {
-    icon: '/android-chrome-192x192.webp',
-    shortcut: '/android-chrome-512x512.webp',
-    apple: '/apple-touch-icon.webp',
+    icon: '/android-chrome-192x192.png',
+    shortcut: '/android-chrome-512x512.png',
+    apple: '/apple-touch-icon.png',
   },
 
   referrer: 'origin-when-cross-origin',

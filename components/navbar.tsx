@@ -21,7 +21,7 @@ import NextLink from 'next/link';
 import clsx from 'clsx';
 
 import { ThemeSwitch } from '@/components/theme-switch';
-import AlfonsoLogo from '@public/android-chrome-512x512.webp';
+import AlfonsoLogo from '@public/android-chrome-512x512.png';
 import Icon from '@components/icons';
 
 import useUserStore from '@/store/userStore';

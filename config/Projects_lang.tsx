@@ -6,6 +6,45 @@ const es = {
   pageTitle: 'Proyectos',
   projects: [
     {
+      name: 'Fiesta Retro App',
+      description: 'App para gestionar la fiesta retro de mi cumpleaños.',
+      lenguagesAndTools_ul: [
+        {
+          name: 'TypeScript',
+          icon: <Icon title="TypeScript" width={toolsIconWidth} />,
+          href: 'https://www.typescriptlang.org/',
+        },
+        {
+          name: 'PNPM (Performant Node Package Manager)',
+          icon: <Icon title="PNPM" width={toolsIconWidth} />,
+          href: 'https://pnpm.io//',
+        },
+        {
+          name: 'Git',
+          icon: <Icon title="Git" width={toolsIconWidth} />,
+          href: 'https://git-scm.com/',
+        },
+        {
+          name: 'Next.js',
+          icon: <Icon title="Next.js" width={toolsIconWidth} />,
+          href: 'https://nextjs.org/',
+        },
+        {
+          name: 'Zustand.js',
+          icon: <Icon title="Zustand.js" width={toolsIconWidth} />,
+          href: 'https://zustand-demo.pmnd.rs/',
+        },
+        {
+          name: 'Firebase.js',
+          icon: <Icon title="Firebase.js" width={toolsIconWidth} />,
+          href: 'https://firebase.google.com/',
+        },
+      ],
+      projectLinkURL: 'https://fiesta.alfonso.ar',
+      projectVideoURL: 'https://www.youtube.com/watch?v=PYU6qaOlNwM',
+      isVerticalVideo: true,
+    },
+    {
       name: 'Mujer App',
       description: 'App para comunidad de mujeres emprendedoras de México.',
       lenguagesAndTools_ul: [
@@ -111,6 +150,10 @@ export type Project = (typeof es.projects)[0];
 const en = {
   pageTitle: 'Proyects',
   projects: [
+    {
+      ...(es.projects.find((p) => p.name === 'Fiesta Retro App') as Project),
+      description: 'App to manage my retro birthday party.',
+    },
     {
       ...(es.projects.find((p) => p.name === 'Mujer App') as Project),
       description: 'App for entrepreneurial women in Mexico.',

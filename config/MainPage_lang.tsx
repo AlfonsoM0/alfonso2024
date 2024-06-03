@@ -65,6 +65,11 @@ const languagesAndToolsData = [
     href: 'https://redux.js.org/',
   },
   {
+    name: 'Zustand.js',
+    icon: <Icon title="Zustand.js" width={toolsIconWidth} />,
+    href: 'https://zustand-demo.pmnd.rs/',
+  },
+  {
     name: 'Prisma (TypeScript ORM)',
     icon: <Icon title="Prisma ORM" width={toolsIconWidth} />,
     href: 'https://www.prisma.io/',
@@ -93,6 +98,11 @@ const languagesAndToolsData = [
     name: 'No-SQL',
     icon: <Icon title="No-SQL" width={toolsIconWidth} />,
     href: 'https://wikipedia.org/wiki/NoSQL',
+  },
+  {
+    name: 'Firebase',
+    icon: <Icon title="Firebase.js" width={toolsIconWidth} />,
+    href: 'https://firebase.google.com/',
   },
   {
     name: 'Express.js',

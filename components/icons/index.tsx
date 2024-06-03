@@ -28,6 +28,8 @@ import SQLIcon from './SQLIcon';
 import SunIcon from './SunIcon';
 import TRPCIcon from './TRPCIcon';
 import TyepeScriptIcon from './TypeScriptIcon';
+import ZustandIcon from './Zustand';
+import FirebaseIcon from './Firebase';
 
 export type SvgProps = ComponentProps<'svg'>;
 
@@ -37,6 +39,7 @@ type IconTitle =
   | 'CSS'
   | 'Download'
   | 'Express.js'
+  | 'Firebase.js'
   | 'GitHub'
   | 'Git'
   | 'HTML'
@@ -60,7 +63,8 @@ type IconTitle =
   | 'SQL'
   | 'Sun'
   | 'tRPC'
-  | 'TypeScript';
+  | 'TypeScript'
+  | 'Zustand.js';
 
 type IconProps = SvgProps & {
   title: IconTitle;
@@ -93,6 +97,10 @@ const icons: Icons[] = [
   {
     title: 'Express.js',
     svg: ExpressIcon,
+  },
+  {
+    title: 'Firebase.js',
+    svg: FirebaseIcon,
   },
   {
     title: 'GitHub',
@@ -189,6 +197,10 @@ const icons: Icons[] = [
   {
     title: 'TypeScript',
     svg: TyepeScriptIcon,
+  },
+  {
+    title: 'Zustand.js',
+    svg: ZustandIcon,
   },
 ];
 

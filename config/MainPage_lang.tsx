@@ -60,6 +60,11 @@ const languagesAndToolsData = [
     href: 'https://nextjs.org/',
   },
   {
+    name: 'Tailwind CSS',
+    icon: <Icon title="TailwindCSS" width={toolsIconWidth} />,
+    href: 'https://tailwindcss.com/',
+  },
+  {
     name: 'Redux',
     icon: <Icon title="Redux" width={toolsIconWidth} />,
     href: 'https://redux.js.org/',

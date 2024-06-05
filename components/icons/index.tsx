@@ -30,6 +30,7 @@ import TRPCIcon from './TRPCIcon';
 import TyepeScriptIcon from './TypeScriptIcon';
 import ZustandIcon from './Zustand';
 import FirebaseIcon from './Firebase';
+import TailwindIcon from './Tailwind';
 
 export type SvgProps = ComponentProps<'svg'>;
 
@@ -62,6 +63,7 @@ type IconTitle =
   | 'Sequelize ORM'
   | 'SQL'
   | 'Sun'
+  | 'TailwindCSS'
   | 'tRPC'
   | 'TypeScript'
   | 'Zustand.js';
@@ -189,6 +191,10 @@ const icons: Icons[] = [
   {
     title: 'Sun',
     svg: SunIcon,
+  },
+  {
+    title: 'TailwindCSS',
+    svg: TailwindIcon,
   },
   {
     title: 'tRPC',

@@ -30,6 +30,11 @@ const es = {
           href: 'https://nextjs.org/',
         },
         {
+          name: 'Tailwind CSS',
+          icon: <Icon title="TailwindCSS" width={toolsIconWidth} />,
+          href: 'https://tailwindcss.com/',
+        },
+        {
           name: 'Zustand.js',
           icon: <Icon title="Zustand.js" width={toolsIconWidth} />,
           href: 'https://zustand-demo.pmnd.rs/',

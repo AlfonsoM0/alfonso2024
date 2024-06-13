@@ -7,7 +7,7 @@ import {
   InputContent,
 } from '@google/generative-ai';
 
-const MODEL_NAME = 'gemini-1.0-pro';
+const MODEL_NAME = 'gemini-1.5-flash';
 const API_KEY = process.env.AI_APY_KEY || '';
 
 export default async function runAlfonsobotChat(

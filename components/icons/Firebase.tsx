@@ -11,7 +11,7 @@ export default function FirebaseIcon(props: SvgProps) {
       {...props}
     >
       <title>Firebase.js</title>
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
       <g id="SVGRepo_iconCarrier">
         <defs>

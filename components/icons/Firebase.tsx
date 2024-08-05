@@ -82,13 +82,13 @@ export default function FirebaseIcon(props: SvgProps) {
           d="M0 282.998l2.123-2.972L102.527 89.512l.212-2.017L58.48 4.358C54.77-2.606 44.33-.845 43.114 6.951L0 282.998z"
           fill="#FFC24A"
         ></path>
-        <use fill="#FFA712" fill-rule="evenodd" xlinkHref="#a"></use>
+        <use fill="#FFA712" fillRule="evenodd" xlinkHref="#a"></use>
         <use filter="url(#b)" xlinkHref="#a"></use>
         <path
           d="M135.005 150.38l32.955-33.75-32.965-62.93c-3.129-5.957-11.866-5.975-14.962 0L102.42 87.287v2.86l32.584 60.233z"
           fill="#F4BD62"
         ></path>
-        <use fill="#FFA50E" fill-rule="evenodd" xlinkHref="#c"></use>
+        <use fill="#FFA50E" fillRule="evenodd" xlinkHref="#c"></use>
         <use filter="url(#d)" xlinkHref="#c"></use>
         <path
           fill="#F6820C"

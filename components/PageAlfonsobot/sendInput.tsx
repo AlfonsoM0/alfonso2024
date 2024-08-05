@@ -3,8 +3,9 @@
 import runAlfonsobotChat from '@/server/actions/runAlfonsobotChat';
 import useUserStore from '@/store/userStore';
 import { Button, CircularProgress } from '@nextui-org/react';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Icon from '../icons';
+import setAlfonsobotHistory from '@/config/alfonsobotPromtHistory';
 
 type SendInputProps = {
   botErrorMsg: string;
@@ -13,23 +14,27 @@ type SendInputProps = {
 };
 
 export default function SendInput(txt: SendInputProps) {
-  const { alfonsobotChat, addChatResponse, clearChatResponses } = useUserStore((store) => store);
+  const { alfonsobotChat, addChatResponse, clearChatResponses, appIsEnglish } = useUserStore(
+    (store) => store
+  );
 
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const [isBotError, setIsBotError] = useState(false);
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  async function onSubmit(e?: React.FormEvent<HTMLFormElement>) {
+    e && e.preventDefault();
 
     setIsLoading(true);
     setIsBotError(false);
 
     addChatResponse({ role: 'user', parts: inputText });
 
+    const history = [...setAlfonsobotHistory(appIsEnglish), ...alfonsobotChat];
+
     try {
-      const res = await runAlfonsobotChat(inputText, alfonsobotChat);
+      const res = await runAlfonsobotChat(inputText, history);
       addChatResponse({ role: 'model', parts: res });
     } catch (error) {
       // console.error('Bot Error => ', error);
@@ -45,6 +50,15 @@ export default function SendInput(txt: SendInputProps) {
     clearChatResponses();
     setIsBotError(false);
   }
+
+  useEffect(() => {
+    onSubmit();
+
+    return () => {
+      reset();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <form

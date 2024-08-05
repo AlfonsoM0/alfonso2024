@@ -1,4 +1,3 @@
-import alfonsobotHistory from '@/config/alfonsobotPromtHistory';
 import { AlfonsoBotResponse } from '@/types';
 import { InputContent } from '@google/generative-ai';
 import { create } from 'zustand';
@@ -21,7 +20,7 @@ const useUserStore = create<UserState & Action>()(
       (set, get) => ({
         // State
         appIsEnglish: true,
-        alfonsobotChat: alfonsobotHistory,
+        alfonsobotChat: [],
 
         // Actions
         changeLanguage: () => set(() => ({ appIsEnglish: !get().appIsEnglish })),
@@ -30,7 +29,7 @@ const useUserStore = create<UserState & Action>()(
           set(() => ({ alfonsobotChat: [...get().alfonsobotChat, resposne] })),
         clearChatResponses: () =>
           set(() => ({
-            alfonsobotChat: alfonsobotHistory,
+            alfonsobotChat: [],
           })),
       }),
       { name: 'userStore' }

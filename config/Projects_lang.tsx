@@ -153,7 +153,7 @@ const es = {
 export type Project = (typeof es.projects)[0];
 
 const en = {
-  pageTitle: 'Proyects',
+  pageTitle: 'Projects',
   projects: [
     {
       ...(es.projects.find((p) => p.name === 'Fiesta Retro App') as Project),

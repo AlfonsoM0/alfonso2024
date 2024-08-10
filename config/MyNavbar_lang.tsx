@@ -4,7 +4,7 @@ const es = {
   navLinks: [
     {
       name: 'Proyectos',
-      url: '/proyects',
+      url: '/projects',
     },
     {
       name: 'Alfonso',

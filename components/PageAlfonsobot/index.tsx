@@ -9,7 +9,7 @@ import { Lang } from '@config/AlfonsoBot_lang';
 import Markdown from 'markdown-to-jsx';
 
 export default function Alfonsobot() {
-  const { appIsEnglish } = useUserStore();
+  const { appIsEnglish, isBotLoading } = useUserStore();
   const txt = appIsEnglish ? Lang.en : Lang.es;
 
   const { alfonsobotChat } = useUserStore();
@@ -29,6 +29,8 @@ export default function Alfonsobot() {
                 );
               else return <DialogUser key={i} response={<p>{dialog.parts as string}</p>} />;
             })}
+
+            {isBotLoading ? <DialogBot key="Loading..." isBotLoading /> : null}
           </div>
         </div>
 

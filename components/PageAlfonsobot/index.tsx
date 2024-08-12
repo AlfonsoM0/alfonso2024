@@ -7,6 +7,7 @@ import SendInput from './sendInput';
 import useUserStore from '@/store/userStore';
 import { Lang } from '@config/AlfonsoBot_lang';
 import Markdown from 'markdown-to-jsx';
+import { useEffect, useRef } from 'react';
 
 export default function Alfonsobot() {
   const { appIsEnglish, isBotLoading } = useUserStore();
@@ -14,6 +15,13 @@ export default function Alfonsobot() {
 
   const { alfonsobotChat } = useUserStore();
   const chat = [alfonsoBoit1stResponse(appIsEnglish), ...alfonsobotChat];
+
+  // If isLoadingContent is true, scroll to the bottom.
+  const refLoader = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    isBotLoading && refLoader.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [isBotLoading]);
+
   return (
     <>
       <div className="h-[75vh] md:h-[65vh] flex flex-col">
@@ -30,7 +38,11 @@ export default function Alfonsobot() {
               else return <DialogUser key={i} response={<p>{dialog.parts as string}</p>} />;
             })}
 
-            {isBotLoading ? <DialogBot key="Loading..." isBotLoading /> : null}
+            {isBotLoading ? (
+              <div ref={refLoader} key="Loading...">
+                <DialogBot isBotLoading />
+              </div>
+            ) : null}
           </div>
         </div>
 
@@ -42,12 +54,6 @@ export default function Alfonsobot() {
           />
         </div>
       </div>
-      {/* <div className="p-2 mx-8 mt-2 border border-primary-100 rounded-lg text-center">
-        <p className="text-sm">
-          <strong>{txt.disclaimer}</strong>
-        </p>
-        <p className="text-xs">{txt.disclaimerTxt}</p>
-      </div> */}
     </>
   );
 }

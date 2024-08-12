@@ -15,22 +15,27 @@ type SendInputProps = {
 };
 
 export default function SendInput(txt: SendInputProps) {
-  const { alfonsobotChat, addChatResponse, clearChatResponses, appIsEnglish } = useUserStore(
-    (store) => store
-  );
+  const {
+    alfonsobotChat,
+    addChatResponse,
+    clearChatResponses,
+    appIsEnglish,
 
-  const [inputText, setInputText] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-
-  const [isBotError, setIsBotError] = useState(false);
+    userQuery,
+    setUserQuery,
+    isBotLoading,
+    setIsBotLoading,
+    isBotError,
+    setIsBotError,
+  } = useUserStore((store) => store);
 
   async function onSubmit(e?: React.FormEvent<HTMLFormElement>) {
     e && e.preventDefault();
 
-    setIsLoading(true);
+    setIsBotLoading(true);
     setIsBotError(false);
 
-    addChatResponse({ role: 'user', parts: inputText });
+    addChatResponse({ role: 'user', parts: userQuery });
 
     const history = [
       ...setAlfonsobotHistory(appIsEnglish),
@@ -39,7 +44,7 @@ export default function SendInput(txt: SendInputProps) {
     ];
 
     try {
-      const res = await runAlfonsobotChat(inputText, history);
+      const res = await runAlfonsobotChat(userQuery, history);
       addChatResponse({ role: 'model', parts: res });
     } catch (error) {
       // console.error('Bot Error => ', error);
@@ -47,8 +52,8 @@ export default function SendInput(txt: SendInputProps) {
       addChatResponse({ role: 'model', parts: txt.botErrorMsg });
     }
 
-    setInputText('');
-    setIsLoading(false);
+    setUserQuery('');
+    setIsBotLoading(false);
   }
 
   function reset() {
@@ -63,15 +68,15 @@ export default function SendInput(txt: SendInputProps) {
       aria-label={txt.placeholder}
     >
       <TextAreaAutosize
-        onChange={(e) => setInputText(e.currentTarget.value)}
-        value={inputText}
-        disabled={isLoading ? true : false}
+        onChange={(e) => setUserQuery(e.currentTarget.value)}
+        value={userQuery}
+        disabled={isBotLoading ? true : false}
         className="w-full border rounded-xl py-2 px-4"
         placeholder={txt.placeholder}
         aria-label={txt.placeholder}
       />
 
-      {isLoading ? (
+      {isBotLoading ? (
         <button
           disabled
           type="button"
@@ -82,14 +87,14 @@ export default function SendInput(txt: SendInputProps) {
       ) : (
         <div className="flex">
           <input
-            disabled={isLoading || inputText.length < 2 ? true : false}
+            disabled={isBotLoading || userQuery.length < 2 ? true : false}
             type="submit"
             aria-label="Send"
             className="bg-blue-500 hover:bg-blue-400 dark:bg-blue-800 dark:hover:bg-blue-500 text-white font-medium py-2 px-4 rounded-full disabled:text-slate-500"
             value={txt.buttonTxt}
           />
           <button
-            disabled={isLoading}
+            disabled={isBotLoading}
             type="button"
             aria-label="Reset Chat"
             onClick={reset}

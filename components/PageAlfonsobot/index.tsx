@@ -24,7 +24,7 @@ export default function Alfonsobot() {
 
   return (
     <>
-      <div className="h-[75vh] md:h-[65vh] flex flex-col">
+      <div className="h-[80vh] md:h-[70vh] mx-[-2rem] md:mx-0 flex flex-col">
         <div className="bg-[rgba(255,255,255,0.7)] dark:bg-[rgba(0,0,0,0.7)] flex-1 overflow-y-scroll">
           <div className="px-4 py-2">
             {chat.map((dialog, i) => {

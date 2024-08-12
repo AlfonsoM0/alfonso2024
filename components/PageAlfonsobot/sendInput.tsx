@@ -2,10 +2,11 @@
 
 import runAlfonsobotChat from '@/server/actions/runAlfonsobotChat';
 import useUserStore from '@/store/userStore';
-import { Button, CircularProgress } from '@nextui-org/react';
-import { useCallback, useEffect, useState } from 'react';
+import { CircularProgress } from '@nextui-org/react';
+import { useState } from 'react';
 import Icon from '../icons';
-import setAlfonsobotHistory from '@/config/alfonsobotPromtHistory';
+import { setAlfonsobotHistory, alfonsoBoit1stResponse } from '@/config/alfonsobotPromtHistory';
+import TextAreaAutosize from 'react-textarea-autosize';
 
 type SendInputProps = {
   botErrorMsg: string;
@@ -31,7 +32,11 @@ export default function SendInput(txt: SendInputProps) {
 
     addChatResponse({ role: 'user', parts: inputText });
 
-    const history = [...setAlfonsobotHistory(appIsEnglish), ...alfonsobotChat];
+    const history = [
+      ...setAlfonsobotHistory(appIsEnglish),
+      alfonsoBoit1stResponse(appIsEnglish),
+      ...alfonsobotChat,
+    ];
 
     try {
       const res = await runAlfonsobotChat(inputText, history);
@@ -51,27 +56,17 @@ export default function SendInput(txt: SendInputProps) {
     setIsBotError(false);
   }
 
-  useEffect(() => {
-    onSubmit();
-
-    return () => {
-      reset();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <form
       onSubmit={onSubmit}
       className="flex items-center flex-wrap justify-center gap-2 sm:flex-nowrap"
       aria-label={txt.placeholder}
     >
-      <input
+      <TextAreaAutosize
         onChange={(e) => setInputText(e.currentTarget.value)}
         value={inputText}
         disabled={isLoading ? true : false}
-        className="w-full border rounded-full py-2 px-4"
-        type="text"
+        className="w-full border rounded-xl py-2 px-4"
         placeholder={txt.placeholder}
         aria-label={txt.placeholder}
       />
@@ -79,6 +74,7 @@ export default function SendInput(txt: SendInputProps) {
       {isLoading ? (
         <button
           disabled
+          type="button"
           className="bg-white dark:bg-black text-white font-medium py-2 px-4 rounded-full"
         >
           <CircularProgress size="sm" />

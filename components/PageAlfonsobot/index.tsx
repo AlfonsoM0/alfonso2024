@@ -1,5 +1,6 @@
 'use client';
 
+import { alfonsoBoit1stResponse } from '@/config/alfonsobotPromtHistory';
 import DialogBot from './dialogAlfonsoBot';
 import DialogUser from './dialogUser';
 import SendInput from './sendInput';
@@ -8,9 +9,11 @@ import { Lang } from '@config/AlfonsoBot_lang';
 import Markdown from 'markdown-to-jsx';
 
 export default function Alfonsobot() {
-  const chat = useUserStore((store) => store.alfonsobotChat).slice(1);
-  const { appIsEnglish } = useUserStore((store) => store);
+  const { appIsEnglish } = useUserStore();
   const txt = appIsEnglish ? Lang.en : Lang.es;
+
+  const { alfonsobotChat } = useUserStore();
+  const chat = [alfonsoBoit1stResponse(appIsEnglish), ...alfonsobotChat];
   return (
     <>
       <div className="h-[75vh] md:h-[65vh] flex flex-col">

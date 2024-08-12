@@ -8,7 +8,7 @@ const alfonsobotHistory: InputContent[] = [
   },
 ];
 
-export default function setAlfonsobotHistory(appIsEnglish: boolean): InputContent[] {
+export function setAlfonsobotHistory(appIsEnglish: boolean): InputContent[] {
   return [
     ...alfonsobotHistory,
     {
@@ -18,4 +18,31 @@ export default function setAlfonsobotHistory(appIsEnglish: boolean): InputConten
         : 'Desarrolla el diálogo en español. Comienza presentándote, como si nunca hubiésemos conversado antes..',
     },
   ];
+}
+
+export function alfonsoBoit1stResponse(appIsEnglish: boolean): InputContent {
+  return {
+    role: 'model',
+    parts: appIsEnglish
+      ? `Hi there! I'm AlfonsoBot, Alfonso's virtual assistant. What would you like to know about him?
+
+Here are some suggestions:
+
+* **His professional experience:** What kind of jobs has he held?
+* **His skills:** What technologies is he proficient in?
+* **His interests:** What does he do in his free time?
+* **His professional goals:** What kind of opportunities is he looking for?
+
+Let me know, and I'll do my best to help!`
+      : `¡Hola! Soy AlfonsoBot, el asistente virtual de Alfonso. ¿Qué te gustaría saber sobre él?
+
+A continuación, te sugerimos algunas cosas:
+
+* **Su experiencia profesional:** ¿Qué tipo de trabajos ha desempeñado?
+* **Sus habilidades:** ¿En qué tecnologías es competente?
+* **Sus intereses:** ¿Qué hace en su tiempo libre?
+* **Sus objetivos profesionales:** ¿Qué tipo de oportunidades está buscando?
+
+¡Cuéntamelo y haré todo lo posible por ayudarte!`,
+  };
 }

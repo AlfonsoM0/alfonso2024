@@ -6,6 +6,51 @@ const es = {
   pageTitle: 'Proyectos',
   projects: [
     {
+      name: 'Game Master AI',
+      description:
+        'GmAi es tu IA personal de Game Master, ¡con el modelo Gemini Pro de Google! Esta aplicación te permite vivir emocionantes aventuras de rol en las que TÚ eres el héroe. Crea personajes únicos, explora mundos fantásticos y toma decisiones críticas que darán forma a la narrativa.',
+      lenguagesAndTools_ul: [
+        {
+          name: 'TypeScript',
+          icon: <Icon title="TypeScript" width={toolsIconWidth} />,
+          href: 'https://www.typescriptlang.org/',
+        },
+        {
+          name: 'PNPM (Performant Node Package Manager)',
+          icon: <Icon title="PNPM" width={toolsIconWidth} />,
+          href: 'https://pnpm.io//',
+        },
+        {
+          name: 'Git',
+          icon: <Icon title="Git" width={toolsIconWidth} />,
+          href: 'https://git-scm.com/',
+        },
+        {
+          name: 'Next.js',
+          icon: <Icon title="Next.js" width={toolsIconWidth} />,
+          href: 'https://nextjs.org/',
+        },
+        {
+          name: 'Tailwind CSS',
+          icon: <Icon title="TailwindCSS" width={toolsIconWidth} />,
+          href: 'https://tailwindcss.com/',
+        },
+        {
+          name: 'Zustand.js',
+          icon: <Icon title="Zustand.js" width={toolsIconWidth} />,
+          href: 'https://zustand-demo.pmnd.rs/',
+        },
+        {
+          name: 'Firebase.js',
+          icon: <Icon title="Firebase.js" width={toolsIconWidth} />,
+          href: 'https://firebase.google.com/',
+        },
+      ],
+      projectLinkURL: 'https://fiesta.alfonso.ar',
+      projectVideoURL: 'https://www.youtube.com/watch?v=Vzwfl-osiXE',
+      isVerticalVideo: false,
+    },
+    {
       name: 'Fiesta Retro App',
       description: 'App para gestionar la fiesta retro de mi cumpleaños.',
       lenguagesAndTools_ul: [
@@ -155,6 +200,11 @@ export type Project = (typeof es.projects)[0];
 const en = {
   pageTitle: 'Projects',
   projects: [
+    {
+      ...(es.projects.find((p) => p.name === 'Game Master AI') as Project),
+      description:
+        "GmAi is your personal AI Game Master, powered by Google's Gemini Pro model! This app lets you experience thrilling RPG adventures where YOU are the hero. Craft unique characters, explore fantastical worlds, and make critical decisions that shape the narrative.",
+    },
     {
       ...(es.projects.find((p) => p.name === 'Fiesta Retro App') as Project),
       description: 'App to manage my retro birthday party.',

@@ -5,25 +5,27 @@ import { Input } from '@components/ui/input';
 import { Label } from '@components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
 export default function WhatsAppMsgBuilderPage() {
   const {
     phone_area1,
     phone_area2,
     phone_local,
+
+    msgTemplate,
     msg1,
     msg2,
     msg3,
     setPArea1,
     setPArea2,
     setPLocal,
+
+    setMsgTemplate,
     setMsg1,
     setMsg2,
     setMsg3,
   } = useUtilWpStore();
-
-  const [msgTemplate, setMsgTemplate] = useState(1);
 
   const link1 = useMemo(
     () => `https://wa.me/${phone_area1}${phone_area2}${phone_local}?text=${encodeURI(msg1)}`,

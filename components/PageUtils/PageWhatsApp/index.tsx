@@ -58,6 +58,12 @@ export default function WhatsAppMsgBuilderPage() {
     else return setMsg3;
   }, [msgTemplate, setMsg1, setMsg2, setMsg3]);
 
+  function validateNumbers(e: React.ChangeEvent<HTMLInputElement>, cb: (n?: string) => void) {
+    const value = e.currentTarget.value;
+    const isNumber = /[0-9]/g.test(value);
+    if (isNumber) cb(value);
+  }
+
   return (
     <div className="max-w-md m-auto">
       <h1 className="text-shadow-main text-4xl">
@@ -72,25 +78,32 @@ export default function WhatsAppMsgBuilderPage() {
           <span className="text-shadow-main">Phone</span>
           <div className="grid grid-cols-12 gap-1">
             <Input
+              name="country"
               className="col-span-2 text-center"
-              type="text"
-              placeholder="00"
+              type="tel"
+              min={0}
+              placeholder="XX"
+              pattern="[0-9]"
               value={phone_area1}
-              onChange={(e) => setPArea1(e.currentTarget.value)}
+              onChange={(e) => validateNumbers(e, setPArea1)}
             />
             <Input
+              name="area"
               className="col-span-3 text-center"
-              type="text"
-              placeholder="0000"
+              type="tel"
+              placeholder="XXXX"
+              pattern="[0-9]"
               value={phone_area2}
-              onChange={(e) => setPArea2(e.currentTarget.value)}
+              onChange={(e) => validateNumbers(e, setPArea2)}
             />
             <Input
+              name="phone"
               className="col-span-7 text-center"
-              type="text"
-              placeholder="00000000"
+              type="tel"
+              placeholder="XXXX-XXXX"
+              pattern="[0-9]"
               value={phone_local}
-              onChange={(e) => setPLocal(e.currentTarget.value)}
+              onChange={(e) => validateNumbers(e, setPLocal)}
             />
           </div>
         </Label>

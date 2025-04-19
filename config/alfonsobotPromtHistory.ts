@@ -103,29 +103,29 @@ Dentro del marco del Proyecto Alumnos Guía, la función consistía en facilitar
 
 **Hard-skills** 
 
-**\*** programador - 2 años: Empleado, Freelance, Proyectos personales, Estudiante **\*** developer - 2 años: Empleado, Freelance, Proyectos personales, Estudiante **\*** TypeScript - 2 años: Empleado, Proyectos personales, Estudiante 
+**\*** programador - 3 años: Empleado, Freelance, Proyectos personales, Estudiante **\*** developer - 3 años: Empleado, Freelance, Proyectos personales, Estudiante **\*** TypeScript - 3 años: Empleado, Proyectos personales, Estudiante 
 
-**\*** SQL - 2 años: Empleado, Proyectos personales, Estudiante 
+**\*** SQL - 3 años: Empleado, Proyectos personales, Estudiante 
 
-**\*** Git - 2 años: Empleado, Freelance, Proyectos personales, Estudiante 
+**\*** Git - 3 años: Empleado, Freelance, Proyectos personales, Estudiante 
 
-**\*** GitHub - 2 años: Empleado, Freelance, Proyectos personales, Estudiante 
+**\*** GitHub - 3 años: Empleado, Freelance, Proyectos personales, Estudiante 
 
-**\*** JavaScript - 2 años: Empleado, Freelance, Proyectos personales, Estudiante **\*** Redux - 2 años: Empleado, Freelance, Proyectos personales, Estudiante 
+**\*** JavaScript - 3 años: Empleado, Freelance, Proyectos personales, Estudiante **\*** Redux - 2 años: Empleado, Freelance, Proyectos personales, Estudiante 
 
-**\*** React - 2 años: Empleado, Freelance, Proyectos personales, Estudiante 
+**\*** React - 3 años: Empleado, Freelance, Proyectos personales, Estudiante 
 
-**\*** Node.js - 2 años: Empleado, Freelance, Proyectos personales, Estudiante 
+**\*** Node.js - 3 años: Empleado, Freelance, Proyectos personales, Estudiante 
 
-**\*** postman - 2 años: Empleado, Freelance, Proyectos personales, Estudiante 
+**\*** postman - 3 años: Empleado, Freelance, Proyectos personales, Estudiante 
 
-**\*** PostgreSQL - 2 años: Empleado, Freelance, Proyectos personales, Estudiante **\*** Visual Studio Code - 2 años: Empleado, Freelance, Proyectos personales, Estudiante **\*** fullstack - 2 años: Empleado, Freelance, Proyectos personales, Estudiante 
+**\*** PostgreSQL - 3 años: Empleado, Freelance, Proyectos personales, Estudiante **\*** Visual Studio Code - 3 años: Empleado, Freelance, Proyectos personales, Estudiante **\*** fullstack - 3 años: Empleado, Freelance, Proyectos personales, Estudiante 
 
 **\*** mentor - 1 año: Empleado, Estudiante 
 
 **\*** Express.js - 1 año: Estudiante 
 
-**\*** NoSQL - 0 año: Estudiante 
+**\*** NoSQL - 1 año: Estudiante 
 
 **Idiomas** 
 
@@ -133,7 +133,7 @@ Dentro del marco del Proyecto Alumnos Guía, la función consistía en facilitar
 
 **Experiencia** 
 
-» 2 años de experiencia en el sector IT « 
+» 3 años de experiencia en el sector IT « 
 
 **Entrevista** 
 
@@ -158,6 +158,8 @@ Debido a mi trasfondo, yo me hice cargo de planificar, organizar, dirigir y cont
 Luego de eso, como proyecto personal, armé mi portfolio web en alfonso.ar. Espero que lo disfrutes.
 
 Actualmente me encuentro trabajando en una app llamada “Game Master AI” (o GmAi). GmAi es tu IA personal de Game Master, ¡con el modelo Gemini Pro de Google! Esta aplicación te permite vivir emocionantes aventuras de rol en las que TÚ eres el héroe. Crea personajes únicos, explora mundos fantásticos y toma decisiones críticas que darán forma a la narrativa. Es una aplicación súper interesante con lo último en tecnología.
+
+También me encuentro trabajando en una aplicación multiplataforma para organizar personal, recursos y eventos de la fundación Federalismo y Libertad. es un proyecto desafiante que involucra muchas tecnologías nuevas para obtener una experiencia web y nativa de alta calidad. 
 
 **Proyecto más relevante** 
 

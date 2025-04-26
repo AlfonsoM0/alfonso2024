@@ -83,7 +83,7 @@ export default function WhatsAppMsgBuilderPage() {
           <div className="grid grid-cols-12 gap-1">
             <Input
               name="country"
-              className="col-span-2 text-center"
+              className="col-span-2 text-center dark:caret-white"
               type="tel"
               min={0}
               placeholder="XX"
@@ -93,7 +93,7 @@ export default function WhatsAppMsgBuilderPage() {
             />
             <Input
               name="area"
-              className="col-span-3 text-center"
+              className="col-span-3 text-center dark:caret-white"
               type="tel"
               placeholder="XXXX"
               pattern="[0-9]"
@@ -102,7 +102,7 @@ export default function WhatsAppMsgBuilderPage() {
             />
             <Input
               name="phone"
-              className="col-span-7 text-center"
+              className="col-span-7 text-center dark:caret-white"
               type="tel"
               placeholder="XXXX-XXXX"
               pattern="[0-9]"
@@ -139,7 +139,7 @@ export default function WhatsAppMsgBuilderPage() {
         <Label className="max-w-xs">
           <span className="text-shadow-main">Message</span>
           <Textarea
-            className="min-h-[30vh]"
+            className="min-h-[30vh] dark:caret-white"
             value={msg}
             onChange={(e) => setMsg(e.currentTarget.value)}
           />

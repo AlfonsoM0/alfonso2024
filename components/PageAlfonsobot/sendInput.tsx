@@ -70,8 +70,7 @@ export default function SendInput(txt: SendInputProps) {
       <TextAreaAutosize
         onChange={(e) => setUserQuery(e.currentTarget.value)}
         value={userQuery}
-        disabled={isBotLoading ? true : false}
-        className="w-full border rounded-xl py-2 px-4"
+        className="dark:caret-white w-full border rounded-xl py-2 px-4"
         placeholder={txt.placeholder}
         aria-label={txt.placeholder}
       />

@@ -89,7 +89,7 @@ export default function ContactForm() {
                 <FormItem className="mt-8 w-full sm:max-w-[220px]">
                   {/* <FormLabel>{txt.input_name}</FormLabel> */}
                   <FormControl>
-                    <Input placeholder={txt.inputName} {...field} />
+                    <Input className='dark:caret-white' placeholder={txt.inputName} {...field} />
                   </FormControl>
                   {/* <FormDescription>.</FormDescription> */}
                   <FormMessage />
@@ -103,7 +103,7 @@ export default function ContactForm() {
                 <FormItem className="mt-8 w-full sm:max-w-[220px]">
                   {/* <FormLabel>{txt.input_email}</FormLabel> */}
                   <FormControl>
-                    <Input placeholder={txt.inputEmail} {...field} />
+                    <Input className='dark:caret-white' placeholder={txt.inputEmail} {...field} />
                   </FormControl>
                   {/* <FormDescription>.</FormDescription> */}
                   <FormMessage />
@@ -118,7 +118,7 @@ export default function ContactForm() {
               <FormItem>
                 {/* <FormLabel>{txt.input_subject}</FormLabel> */}
                 <FormControl>
-                  <Input placeholder={txt.inputSubject} {...field} />
+                  <Input className='dark:caret-white' placeholder={txt.inputSubject} {...field} />
                 </FormControl>
                 {/* <FormDescription>.</FormDescription> */}
                 <FormMessage />
@@ -132,7 +132,7 @@ export default function ContactForm() {
               <FormItem>
                 {/* <FormLabel>{txt.input_consult}</FormLabel> */}
                 <FormControl>
-                  <Textarea placeholder={txt.inputConsult} {...field} />
+                  <Textarea className='dark:caret-white' placeholder={txt.inputConsult} {...field} />
                 </FormControl>
                 {/* <FormDescription>.</FormDescription> */}
                 <FormMessage />

@@ -59,9 +59,13 @@ export default function WhatsAppMsgBuilderPage() {
   }, [msgTemplate, setMsg1, setMsg2, setMsg3]);
 
   function validateNumbers(e: React.ChangeEvent<HTMLInputElement>, cb: (n?: string) => void) {
-    const value = e.currentTarget.value;
-    const isNumber = /[0-9]/g.test(value);
-    if (isNumber || value === '') cb(value);
+    let value = e.currentTarget.value;
+    if (value === "") {
+      cb(value);
+    } else {
+      value = value.replace(/[^0-9]/g, "");
+      if (value.length > 0) cb(value);
+    }
   }
 
   return (

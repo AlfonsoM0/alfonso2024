@@ -22,7 +22,7 @@
     "autoprefixer": "10.4.16",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
-    "framer-motion": "^10.18.0",
+    "framer-motion": "^12.9.2",
     "intl-messageformat": "^10.5.11",
     "lucide-react": "^0.331.0",
     "markdown-to-jsx": "^7.4.1",

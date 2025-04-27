@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import QRCode from 'react-qr-code';
 import { Input } from '@components/ui/input';
 import { Label } from '@components/ui/label';
@@ -29,6 +29,10 @@ export default function PagePetQR() {
     )}&i=${encodeURIComponent(i)}`;
     setQrValue(url);
   };
+
+  useEffect(() => {
+    setQrValue('');
+  }, [n, a1, a2, p1, p2, i]);
 
   return (
     <div className="max-w-md m-auto p-4 bg-white bg-opacity-30 rounded shadow dark:bg-black dark:bg-opacity-30">

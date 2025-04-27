@@ -60,16 +60,16 @@ export default function WhatsAppMsgBuilderPage() {
 
   function validateNumbers(e: React.ChangeEvent<HTMLInputElement>, cb: (n?: string) => void) {
     let value = e.currentTarget.value;
-    if (value === "") {
+    if (value === '') {
       cb(value);
     } else {
-      value = value.replace(/[^0-9]/g, "");
+      value = value.replace(/[^0-9]/g, '');
       if (value.length > 0) cb(value);
     }
   }
 
   return (
-    <div className="max-w-md m-auto">
+    <div className="max-w-md m-auto p-4 bg-white bg-opacity-30 rounded shadow dark:bg-black dark:bg-opacity-30">
       <h1 className="text-shadow-main text-4xl">
         Utils <br /> WhatsApp msg Builder
       </h1>

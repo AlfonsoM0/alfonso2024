@@ -18,6 +18,10 @@ const es = {
       name: 'Contacto',
       url: '/contact',
     },
+    {
+      name: 'Utils',
+      url: '/u',
+    },
   ],
 };
 
@@ -40,6 +44,10 @@ const en = {
     {
       name: 'Contact',
       url: '/contact',
+    },
+    {
+      name: 'Utils',
+      url: '/u',
     },
   ],
 };

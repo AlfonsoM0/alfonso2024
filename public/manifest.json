@@ -70,6 +70,20 @@
           "purpose": "maskable"
         }
       ]
+    },
+    {
+      "name": "Utils/petQR",
+      "short_name": "AlfonsoBot",
+      "description": "Utils / My pet QR",
+      "url": "https://alfonso.ar/u/petQR",
+      "icons": [
+        {
+          "src": "/android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png",
+          "purpose": "maskable"
+        }
+      ]
     }
   ],
   "screenshots": [

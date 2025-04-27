@@ -21,7 +21,12 @@ export default function Page() {
       <div className="flex flex-col justify-center m-auto mt-4 max-w-sm">
         <Button variant={'outline'}>
           <Link href={'/u/wp'}>
-            <strong>WhatsApp ms builder</strong>
+            <strong>WhatsApp msg builder</strong>
+          </Link>
+        </Button>
+        <Button variant={'outline'} className="mt-2">
+          <Link href={'/u/petQR'}>
+            <strong>My pet QR</strong>
           </Link>
         </Button>
       </div>

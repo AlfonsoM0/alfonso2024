@@ -7,8 +7,13 @@ import { Label } from '@components/ui/label';
 import { Textarea } from '@components/ui/textarea';
 import { Button } from '@components/ui/button';
 import useUtilPetQrStore from '@/store/utilPetQrStore';
+import useUserStore from '@/store/userStore';
+import { Lang } from '@/config/UtilsPetQr_lang';
 
 export default function PagePetQR() {
+  const { appIsEnglish } = useUserStore();
+  const txt = appIsEnglish ? Lang.en : Lang.es;
+
   const { n, a1, a2, p1, p2, i, setName, setAddress1, setAddress2, setPhone1, setPhone2, setInfo } =
     useUtilPetQrStore();
 
@@ -18,7 +23,7 @@ export default function PagePetQR() {
     e.preventDefault();
 
     if (!n) {
-      alert('Por favor, ingresa el nombre de la mascota.');
+      alert(txt.label_name + ' ' + (appIsEnglish ? 'is required.' : 'es requerido.'));
       return;
     }
     // Encode URI components to safely include in URL
@@ -36,17 +41,17 @@ export default function PagePetQR() {
 
   return (
     <div className="max-w-md m-auto p-4 bg-white bg-opacity-30 rounded shadow dark:bg-black dark:bg-opacity-30">
-      <h1 className="text-shadow-main text-4xl mb-4">Generar QR para mi mascota</h1>
-      <p className="text-xs">* Crea un QR para añadir al collar de tu mascota para su seguridad.</p>
-      <p className="text-xs">* La información solo se guarda en tu dispositivo y en el QR.</p>
+      <h1 className="text-shadow-main text-4xl mb-4">{txt.title}</h1>
+      <p className="text-xs">{txt.info1}</p>
+      <p className="text-xs">{txt.info2}</p>
 
       <br />
 
       <form onSubmit={generateQr} className="space-y-4">
         <div>
-          <Label htmlFor="n">Nombre de tu mascota</Label>
+          <Label htmlFor="n">{txt.label_name}</Label>
           <Input
-            placeholder="Ej.: Matilda"
+            placeholder={txt.placeholder_name}
             type="text"
             id="n"
             name="n"
@@ -56,73 +61,73 @@ export default function PagePetQR() {
           />
         </div>
         <div>
-          <Label htmlFor="a1">Dirección 1</Label>
+          <Label htmlFor="a1">{txt.label_address1}</Label>
           <Input
-            placeholder="Ej.: Calle 31, Santiago del Estero, Argentina"
+            placeholder={txt.placeholder_address1}
             type="text"
             id="a1"
             name="a1"
             value={a1}
             onChange={(e) => setAddress1(e.currentTarget.value)}
           />
-          <span className="text-xs">Ingresa la dirección completa: calle, provincia, país.</span>
+          <span className="text-xs">{txt.helper_address}</span>
         </div>
         <div>
-          <Label htmlFor="a2">Dirección 2</Label>
+          <Label htmlFor="a2">{txt.label_address2}</Label>
           <Input
-            placeholder="Ej.: Calle 31, Santiago del Estero, Argentina"
+            placeholder={txt.placeholder_address2}
             type="text"
             id="a2"
             name="a2"
             value={a2}
             onChange={(e) => setAddress2(e.currentTarget.value)}
           />
-          <span className="text-xs">Ingresa la dirección completa: calle, provincia, país.</span>
+          <span className="text-xs">{txt.helper_address}</span>
         </div>
         <div>
-          <Label htmlFor="p1">Teléfono de contacto 1</Label>
+          <Label htmlFor="p1">{txt.label_phone1}</Label>
           <Input
-            placeholder="Ej.: 54 9385 611 22 33"
+            placeholder={txt.placeholder_phone1}
             type="tel"
             id="p1"
             name="p1"
             value={p1}
             onChange={(e) => setPhone1(e.currentTarget.value)}
           />
-          <span className="text-xs">Ingresa el número completo con código de país y área.</span>
+          <span className="text-xs">{txt.helper_phone}</span>
         </div>
         <div>
-          <Label htmlFor="p2">Teléfono de contacto 2</Label>
+          <Label htmlFor="p2">{txt.label_phone2}</Label>
           <Input
-            placeholder="Ej.: 54 9385 611 22 33"
+            placeholder={txt.placeholder_phone2}
             type="tel"
             id="p2"
             name="p2"
             value={p2}
             onChange={(e) => setPhone2(e.currentTarget.value)}
           />
-          <span className="text-xs">Ingresa el número completo con código de país y área.</span>
+          <span className="text-xs">{txt.helper_phone}</span>
         </div>
         <div>
-          <Label htmlFor="i">Información importante</Label>
+          <Label htmlFor="i">{txt.label_info}</Label>
           <Textarea
-            placeholder="Ej.: Tiene todas las vacunas pero come un alimento especial..."
+            placeholder={txt.placeholder_info}
             id="i"
             name="i"
             value={i}
             onChange={(e) => setInfo(e.currentTarget.value)}
             rows={4}
           />
-          <span className="text-xs">Alimentación especial, vacunación, etc...</span>
+          <span className="text-xs">{txt.helper_info}</span>
         </div>
         <Button type="submit" className="w-full">
-          Generar QR para mi mascota
+          {txt.btn_generate}
         </Button>
       </form>
 
       {qrValue && (
         <div className="mt-6 text-center">
-          <p className="mb-2 font-semibold">Escanea este código QR o haz captura de pantalla:</p>
+          <p className="mb-2 font-semibold">{txt.qr_instructions}</p>
           <div className="inline-block bg-white p-4 rounded shadow">
             <QRCode value={qrValue} size={256} />
           </div>

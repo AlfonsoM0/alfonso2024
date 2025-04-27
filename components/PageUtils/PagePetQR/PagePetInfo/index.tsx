@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { useSearchParams } from 'next/navigation';
+import useUserStore from '@/store/userStore';
+import { Lang } from '@/config/UtilsPetQrInfo_lang';
 
 interface PetInfoProps {
   params: {
@@ -10,6 +12,9 @@ interface PetInfoProps {
 }
 
 export default function PetInfoPage({ params }: PetInfoProps) {
+  const { appIsEnglish } = useUserStore();
+  const txt = appIsEnglish ? Lang.en : Lang.es;
+
   const searchParams = useSearchParams();
 
   const n = decodeURIComponent(params.n);
@@ -24,7 +29,9 @@ export default function PetInfoPage({ params }: PetInfoProps) {
 
   const whatsappLink = (phone: string) =>
     phone
-      ? `https://wa.me/${phone.replace(/\D/g, '')}?text=${encodeURIComponent(`Encontré a ${n}!`)}`
+      ? `https://wa.me/${phone.replace(/\D/g, '')}?text=${encodeURIComponent(
+          txt.foundPetMessage(n)
+        )}`
       : '';
 
   const telLink = (phone: string) => (phone ? `tel:${phone.replace(/\D/g, '')}` : '');
@@ -35,7 +42,7 @@ export default function PetInfoPage({ params }: PetInfoProps) {
 
       {(a1 || a2) && (
         <div className="mb-4">
-          <h2 className="text-xl font-semibold mb-2">Direcciones</h2>
+          <h2 className="text-xl font-semibold mb-2">{txt.addresses}</h2>
           {a1 && (
             <p className="text-center">
               <a
@@ -65,7 +72,7 @@ export default function PetInfoPage({ params }: PetInfoProps) {
 
       {(p1 || p2) && (
         <div className="mb-4">
-          <h2 className="text-xl font-semibold mb-2">Teléfonos de contacto</h2>
+          <h2 className="text-xl font-semibold mb-2">{txt.contactPhones}</h2>
           {p1 && (
             <p className="flex space-x-4 items-center mb-1 justify-center">
               <span>{p1}</span>
@@ -74,14 +81,14 @@ export default function PetInfoPage({ params }: PetInfoProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600"
-                aria-label={`Enviar WhatsApp a ${p1}`}
+                aria-label={txt.sendWhatsAppTo(p1)}
               >
                 WhatsApp
               </a>
               <a
                 href={telLink(p1)}
                 className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600"
-                aria-label={`Llamar a ${p1}`}
+                aria-label={txt.callTo(p1)}
               >
                 Llamar
               </a>
@@ -95,14 +102,14 @@ export default function PetInfoPage({ params }: PetInfoProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600"
-                aria-label={`Enviar WhatsApp a ${p2}`}
+                aria-label={txt.sendWhatsAppTo(p2)}
               >
                 WhatsApp
               </a>
               <a
                 href={telLink(p2)}
                 className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600"
-                aria-label={`Llamar a ${p2}`}
+                aria-label={txt.callTo(p2)}
               >
                 Llamar
               </a>
@@ -113,7 +120,7 @@ export default function PetInfoPage({ params }: PetInfoProps) {
 
       {i && (
         <div>
-          <h2 className="text-xl font-semibold mb-2">Información importante</h2>
+          <h2 className="text-xl font-semibold mb-2">{txt.importantInfo}</h2>
           <p className="whitespace-pre-wrap">{i}</p>
         </div>
       )}

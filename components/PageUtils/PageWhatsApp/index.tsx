@@ -6,8 +6,13 @@ import { Label } from '@components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { useMemo } from 'react';
+import useUserStore from '@/store/userStore';
+import { Lang } from '@/config/UtilsWp_lang';
 
 export default function WhatsAppMsgBuilderPage() {
+  const { appIsEnglish } = useUserStore();
+  const txt = appIsEnglish ? Lang.en : Lang.es;
+
   const {
     phone_area1,
     phone_area2,
@@ -70,23 +75,21 @@ export default function WhatsAppMsgBuilderPage() {
 
   return (
     <div className="max-w-md m-auto p-4 bg-white bg-opacity-30 rounded shadow dark:bg-black dark:bg-opacity-30">
-      <h1 className="text-shadow-main text-4xl">
-        Utils <br /> WhatsApp msg Builder
-      </h1>
+      <h1 className="text-shadow-main text-4xl">{txt.title}</h1>
 
       <hr />
       <br />
 
       <div className="gap-2">
         <Label className="max-w-xs">
-          <span className="text-shadow-main">Phone</span>
+          <span className="text-shadow-main">{txt.label_phone}</span>
           <div className="grid grid-cols-12 gap-1">
             <Input
               name="country"
               className="col-span-2 text-center dark:caret-white"
               type="tel"
               min={0}
-              placeholder="XX"
+              placeholder={txt.placeholder_country}
               pattern="[0-9]"
               value={phone_area1}
               onChange={(e) => validateNumbers(e, setPArea1)}
@@ -95,7 +98,7 @@ export default function WhatsAppMsgBuilderPage() {
               name="area"
               className="col-span-3 text-center dark:caret-white"
               type="tel"
-              placeholder="XXXX"
+              placeholder={txt.placeholder_area}
               pattern="[0-9]"
               value={phone_area2}
               onChange={(e) => validateNumbers(e, setPArea2)}
@@ -104,7 +107,7 @@ export default function WhatsAppMsgBuilderPage() {
               name="phone"
               className="col-span-7 text-center dark:caret-white"
               type="tel"
-              placeholder="XXXX-XXXX"
+              placeholder={txt.placeholder_phone}
               pattern="[0-9]"
               value={phone_local}
               onChange={(e) => validateNumbers(e, setPLocal)}
@@ -118,26 +121,26 @@ export default function WhatsAppMsgBuilderPage() {
             variant={msgTemplate === 1 ? 'outline' : undefined}
             onClick={() => setMsgTemplate(1)}
           >
-            Template 1
+            {txt.btn_template1}
           </Button>
           <Button
             size={'sm'}
             variant={msgTemplate === 2 ? 'outline' : undefined}
             onClick={() => setMsgTemplate(2)}
           >
-            Template 2
+            {txt.btn_template2}
           </Button>
           <Button
             size={'sm'}
             variant={msgTemplate === 3 ? 'outline' : undefined}
             onClick={() => setMsgTemplate(3)}
           >
-            Template 3
+            {txt.btn_template3}
           </Button>
         </div>
 
         <Label className="max-w-xs">
-          <span className="text-shadow-main">Message</span>
+          <span className="text-shadow-main">{txt.label_message}</span>
           <Textarea
             className="min-h-[30vh] dark:caret-white"
             value={msg}
@@ -147,7 +150,7 @@ export default function WhatsAppMsgBuilderPage() {
 
         <Button size={'fullWidth'} className="mt-4">
           <a href={link} target="_blank" rel="noopener noreferrer">
-            Send on WhatsApp
+            {txt.btn_send}
           </a>
         </Button>
       </div>

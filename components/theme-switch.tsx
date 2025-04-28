@@ -28,6 +28,8 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className, classNames }) => 
     onChange,
   });
 
+  const vh = VisuallyHidden({ children: <input {...getInputProps()} /> });
+
   return (
     <Component
       {...getBaseProps({
@@ -38,9 +40,10 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className, classNames }) => 
         ),
       })}
     >
-      <VisuallyHidden>
+      {vh}
+      {/* <VisuallyHidden>
         <input {...getInputProps()} />
-      </VisuallyHidden>
+      </VisuallyHidden> */}
       <div
         {...getWrapperProps()}
         className={slots.wrapper({

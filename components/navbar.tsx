@@ -9,10 +9,7 @@ import {
   NavbarItem,
   NavbarMenuItem,
 } from '@nextui-org/react';
-import { Button } from '@nextui-org/react';
-import { Kbd } from '@nextui-org/react';
 import { Link } from '@nextui-org/react';
-import { Input } from '@nextui-org/react';
 import Image from 'next/image';
 
 import { link as linkStyles } from '@nextui-org/theme';
@@ -27,15 +24,22 @@ import Icon from '@components/icons';
 import useUserStore from '@/store/userStore';
 import lang from '@config/MyNavbar_lang';
 import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
 
 export const Navbar = () => {
-  const { appIsEnglish, changeLanguage } = useUserStore((store) => store);
+  const { appIsEnglish, setAppIsEnglish, changeLanguage } = useUserStore((store) => store);
 
   const txt = appIsEnglish ? lang.en : lang.es;
 
   const pathname = usePathname();
 
   const navLinks = txt.navLinks.filter((item) => item.url !== pathname);
+
+  useEffect(() => {
+    const browserLanguage = navigator.language;
+    if (browserLanguage.includes('es')) setAppIsEnglish(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <NextUINavbar

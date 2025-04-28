@@ -13,6 +13,7 @@ type UserState = {
 
 type Action = {
   changeLanguage: () => void;
+  setAppIsEnglish: (appIsEnglish: boolean) => void;
   addChatResponse: (resposne: AlfonsoBotResponse) => void;
   clearChatResponses: () => void;
   setUserQuery: (userQuery: string) => void;
@@ -33,6 +34,8 @@ const useUserStore = create<UserState & Action>()(
 
         // Actions
         changeLanguage: () => set(() => ({ appIsEnglish: !get().appIsEnglish })),
+
+        setAppIsEnglish: (appIsEnglish) => set({ appIsEnglish }),
 
         addChatResponse: (resposne) =>
           set(() => ({ alfonsobotChat: [...get().alfonsobotChat, resposne] })),

@@ -8,6 +8,10 @@ type UtilPetQrState = {
   p1: string;
   p2: string;
   i: string;
+  e: string;
+
+  QrColor: string;
+  QrColorBg: string;
 };
 
 type UtilPetQrAcctions = {
@@ -17,6 +21,10 @@ type UtilPetQrAcctions = {
   setPhone1: (p1: string) => void;
   setPhone2: (p2: string) => void;
   setInfo: (i: string) => void;
+  setEmail: (e: string) => void;
+
+  setQrColor: (color: string) => void;
+  setQrColorBg: (color: string) => void;
 };
 
 const initialUtilPetQrStore: UtilPetQrState = {
@@ -26,6 +34,10 @@ const initialUtilPetQrStore: UtilPetQrState = {
   p1: '',
   p2: '',
   i: '',
+  e: '',
+
+  QrColor: '#000000',
+  QrColorBg: '#ffffff',
 };
 
 const useUtilPetQrStore = create<UtilPetQrState & UtilPetQrAcctions>()(
@@ -46,6 +58,12 @@ const useUtilPetQrStore = create<UtilPetQrState & UtilPetQrAcctions>()(
         setPhone2: (p2: string) => set({ p2 }),
 
         setInfo: (i: string) => set({ i }),
+
+        setEmail: (e: string) => set({ e }),
+
+        setQrColor: (color: string) => set({ QrColor: color }),
+
+        setQrColorBg: (color: string) => set({ QrColorBg: color }),
       }),
 
       { name: 'util-pet-qr-store' }

@@ -74,7 +74,7 @@ export default function WhatsAppMsgBuilderPage() {
   }
 
   return (
-    <div className="max-w-md m-auto p-4 bg-white bg-opacity-30 rounded shadow dark:bg-black dark:bg-opacity-30">
+    <div className="max-w-md m-auto p-4 bg-white bg-opacity-50 rounded shadow dark:bg-black dark:bg-opacity-50">
       <h1 className="text-shadow-main text-4xl">{txt.title}</h1>
 
       <hr />

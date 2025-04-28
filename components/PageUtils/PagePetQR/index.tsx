@@ -10,18 +10,38 @@ import useUtilPetQrStore from '@/store/utilPetQrStore';
 import useUserStore from '@/store/userStore';
 import { Lang } from '@/config/UtilsPetQr_lang';
 import downloadQrCode from './downloadQrCode';
+import Link from 'next/link';
 
 export default function PagePetQR() {
   const { appIsEnglish } = useUserStore();
   const txt = appIsEnglish ? Lang.en : Lang.es;
 
-  const { n, a1, a2, p1, p2, i, setName, setAddress1, setAddress2, setPhone1, setPhone2, setInfo } =
-    useUtilPetQrStore();
+  const {
+    n,
+    a1,
+    a2,
+    p1,
+    p2,
+    i,
+    e,
+    setName,
+    setAddress1,
+    setAddress2,
+    setPhone1,
+    setPhone2,
+    setInfo,
+    setEmail,
+
+    QrColor,
+    QrColorBg,
+    setQrColor,
+    setQrColorBg,
+  } = useUtilPetQrStore();
 
   const [qrValue, setQrValue] = useState('');
 
-  const generateQr = (e: React.FormEvent) => {
-    e.preventDefault();
+  const generateQr = (event: React.FormEvent) => {
+    event.preventDefault();
 
     if (!n) {
       alert(txt.label_name + ' ' + (appIsEnglish ? 'is required.' : 'es requerido.'));
@@ -32,16 +52,16 @@ export default function PagePetQR() {
       a1
     )}&a2=${encodeURIComponent(a2)}&p1=${encodeURIComponent(p1)}&p2=${encodeURIComponent(
       p2
-    )}&i=${encodeURIComponent(i)}`;
+    )}&i=${encodeURIComponent(i)}&e=${encodeURIComponent(e)}`;
     setQrValue(url);
   };
 
   useEffect(() => {
     setQrValue('');
-  }, [n, a1, a2, p1, p2, i]);
+  }, [n, a1, a2, p1, p2, i, e]);
 
   return (
-    <div className="max-w-md m-auto p-4 bg-white bg-opacity-30 rounded shadow dark:bg-black dark:bg-opacity-30">
+    <div className="max-w-md m-auto p-4 bg-white bg-opacity-50 rounded shadow dark:bg-black dark:bg-opacity-50">
       <h1 className="text-shadow-main text-4xl mb-4">{txt.title}</h1>
       <p className="text-xs">{txt.info1}</p>
       <p className="text-xs">{txt.info2}</p>
@@ -110,6 +130,18 @@ export default function PagePetQR() {
           <span className="text-xs">{txt.helper_phone}</span>
         </div>
         <div>
+          <Label htmlFor="p2">{txt.label_email}</Label>
+          <Input
+            placeholder={txt.placeholder_email}
+            type="tel"
+            id="p2"
+            name="p2"
+            value={e}
+            onChange={(e) => setEmail(e.currentTarget.value)}
+          />
+          <span className="text-xs">{txt.helper_email}</span>
+        </div>
+        <div>
           <Label htmlFor="i">{txt.label_info}</Label>
           <Textarea
             placeholder={txt.placeholder_info}
@@ -121,6 +153,7 @@ export default function PagePetQR() {
           />
           <span className="text-xs">{txt.helper_info}</span>
         </div>
+
         <Button type="submit" className="w-full">
           {txt.btn_generate}
         </Button>
@@ -129,25 +162,51 @@ export default function PagePetQR() {
       {qrValue && (
         <div className="mt-6 text-center">
           <p className="mb-2 font-semibold">{txt.qr_instructions}</p>
-          <div id="qr-code" className="inline-block bg-white p-4 rounded shadow">
-            <QRCode value={qrValue} size={256} />
+
+          <div className="flex justify-center align-middle mb-2">
+            <Label className="mt-2">{txt.helper_QrColor}</Label>
+            <Input
+              className="ml-2 w-8 h-8 border rounded p-[0.1rem] bg-black dark:bg-white"
+              type="color"
+              value={QrColor}
+              onChange={(e) => setQrColor(e.currentTarget.value)}
+            />
           </div>
-          <Button
-            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-            onClick={() => downloadQrCode(n)}
+          <div className="flex justify-center align-middle mb-2">
+            <Label className="mt-2">{txt.helper_QrColorBg}</Label>
+            <Input
+              className="ml-2 w-8 h-8 border rounded p-[0.1rem] bg-black dark:bg-white"
+              type="color"
+              value={QrColorBg}
+              onChange={(e) => setQrColorBg(e.currentTarget.value)}
+            />
+          </div>
+
+          <div
+            id="qr-code"
+            className="inline-block p-4 rounded shadow"
+            style={{ backgroundColor: QrColorBg, borderColor: QrColor }}
           >
-            {txt.btn_download_qr}
-          </Button>
-          <p className="mt-2 text-sm break-words">
-            <a
-              href={qrValue}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 underline dark:text-blue-300"
+            <QRCode value={qrValue} size={256} fgColor={QrColor} bgColor={QrColorBg} />
+            <p
+              className="text-center font-extrabold"
+              style={{ color: QrColor }}
+            >{`${window.location.origin}/u/petQR`}</p>
+          </div>
+
+          <div className="gap-2 flex justify-center align-middle">
+            <Button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+              <Link href={qrValue} target="_blank" rel="noopener noreferrer">
+                {txt.btn_visitPetPage}
+              </Link>
+            </Button>
+            <Button
+              className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+              onClick={() => downloadQrCode(n)}
             >
-              {qrValue}
-            </a>
-          </p>
+              {txt.btn_download_qr}
+            </Button>
+          </div>
         </div>
       )}
     </div>

@@ -1,5 +1,5 @@
 const es = {
-  title: 'Utils Constructor de mensajes WhatsApp',
+  title: 'Constructor de mensajes WhatsApp',
   label_phone: 'Teléfono',
   label_message: 'Mensaje',
   placeholder_country: 'XX',
@@ -12,7 +12,7 @@ const es = {
 };
 
 const en = {
-  title: 'Utils WhatsApp msg Builder',
+  title: 'WhatsApp msg Builder',
   label_phone: 'Phone',
   label_message: 'Message',
   placeholder_country: 'XX',

@@ -12,14 +12,21 @@ const es = {
   placeholder_phone1: 'Ej.: 54 9385 611 22 33',
   label_phone2: 'Teléfono de contacto 2',
   placeholder_phone2: 'Ej.: 54 9385 611 22 33',
+  label_email: 'Email de contacto',
+  placeholder_email: 'ejemplo@dominio.com',
+  helper_email: 'Recibirás un email cuando se visite la página de tu mascota con la ubicación',
   label_info: 'Información importante',
   placeholder_info: 'Ej.: Tiene todas las vacunas pero come un alimento especial...',
   helper_address: 'Ingresa la dirección completa: calle, provincia, país.',
   helper_phone: 'Ingresa el número completo con código de país y área.',
   helper_info: 'Alimentación especial, vacunación, etc...',
   btn_generate: 'Generar QR para mi mascota',
-  qr_instructions: 'Escanea este código QR o haz captura de pantalla:',
+  qr_instructions: 'Este código QR te lleva a la página de tu mascota:',
   btn_download_qr: 'Descargar Código QR',
+  btn_visitPetPage: 'Ver página de mi mascota',
+
+  helper_QrColor: 'Elige un color para el QR',
+  helper_QrColorBg: 'Elige un color de fondo para el QR',
 };
 
 const en = {
@@ -36,14 +43,21 @@ const en = {
   placeholder_phone1: 'E.g.: 54 9385 611 22 33',
   label_phone2: 'Contact phone 2',
   placeholder_phone2: 'E.g.: 54 9385 611 22 33',
+  label_email: 'Contact email',
+  placeholder_email: 'example@domain.com',
+  helper_email: 'You will receive a email when you visit your pet’s page with the location',
   label_info: 'Important information',
   placeholder_info: 'E.g.: Has all vaccines but eats special food...',
   helper_address: 'Enter the full address: street, province, country.',
   helper_phone: 'Enter the full number with country and area code.',
   helper_info: 'Special diet, vaccination, etc...',
   btn_generate: 'Generate QR for my pet',
-  qr_instructions: 'Scan this QR code or take a screenshot:',
+  qr_instructions: 'This QR code takes you to your pet’s page:',
   btn_download_qr: 'Download QR Code',
-};
+  btn_visitPetPage: 'Visit my pet page',
+
+  helper_QrColor: 'Choose a color for the QR',
+  helper_QrColorBg: 'Choose a background color for the QR',
+} as typeof es;
 
 export const Lang = { es, en };

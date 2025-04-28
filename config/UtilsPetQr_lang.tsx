@@ -19,6 +19,7 @@ const es = {
   helper_info: 'Alimentación especial, vacunación, etc...',
   btn_generate: 'Generar QR para mi mascota',
   qr_instructions: 'Escanea este código QR o haz captura de pantalla:',
+  btn_download_qr: 'Descargar Código QR',
 };
 
 const en = {
@@ -42,6 +43,7 @@ const en = {
   helper_info: 'Special diet, vaccination, etc...',
   btn_generate: 'Generate QR for my pet',
   qr_instructions: 'Scan this QR code or take a screenshot:',
+  btn_download_qr: 'Download QR Code',
 };
 
 export const Lang = { es, en };

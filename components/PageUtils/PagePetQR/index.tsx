@@ -9,6 +9,7 @@ import { Button } from '@components/ui/button';
 import useUtilPetQrStore from '@/store/utilPetQrStore';
 import useUserStore from '@/store/userStore';
 import { Lang } from '@/config/UtilsPetQr_lang';
+import downloadQrCode from './downloadQrCode';
 
 export default function PagePetQR() {
   const { appIsEnglish } = useUserStore();
@@ -128,9 +129,15 @@ export default function PagePetQR() {
       {qrValue && (
         <div className="mt-6 text-center">
           <p className="mb-2 font-semibold">{txt.qr_instructions}</p>
-          <div className="inline-block bg-white p-4 rounded shadow">
+          <div id="qr-code" className="inline-block bg-white p-4 rounded shadow">
             <QRCode value={qrValue} size={256} />
           </div>
+          <Button
+            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            onClick={() => downloadQrCode(n)}
+          >
+            {txt.btn_download_qr}
+          </Button>
           <p className="mt-2 text-sm break-words">
             <a
               href={qrValue}

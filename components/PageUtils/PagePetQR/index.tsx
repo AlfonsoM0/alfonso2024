@@ -47,6 +47,15 @@ export default function PagePetQR() {
       alert(txt.label_name + ' ' + (appIsEnglish ? 'is required.' : 'es requerido.'));
       return;
     }
+    if (!p1) {
+      alert(txt.label_phone1 + ' ' + (appIsEnglish ? 'is required.' : 'es requerido.'));
+      return;
+    }
+    if (!e) {
+      alert(txt.label_email + ' ' + (appIsEnglish ? 'is required.' : 'es requerido.'));
+      return;
+    }
+
     // Encode URI components to safely include in URL
     const url = `${window.location.origin}/u/petQR/${encodeURIComponent(n)}?a1=${encodeURIComponent(
       a1
@@ -114,6 +123,7 @@ export default function PagePetQR() {
             name="p1"
             value={p1}
             onChange={(e) => setPhone1(e.currentTarget.value)}
+            required
           />
           <span className="text-xs">{txt.helper_phone}</span>
         </div>
@@ -130,14 +140,15 @@ export default function PagePetQR() {
           <span className="text-xs">{txt.helper_phone}</span>
         </div>
         <div>
-          <Label htmlFor="p2">{txt.label_email}</Label>
+          <Label htmlFor="e">{txt.label_email}</Label>
           <Input
             placeholder={txt.placeholder_email}
-            type="tel"
-            id="p2"
-            name="p2"
+            type="email"
+            id="e"
+            name="e"
             value={e}
             onChange={(e) => setEmail(e.currentTarget.value)}
+            required
           />
           <span className="text-xs">{txt.helper_email}</span>
         </div>

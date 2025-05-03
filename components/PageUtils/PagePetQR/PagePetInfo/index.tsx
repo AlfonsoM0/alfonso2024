@@ -5,6 +5,8 @@ import { useSearchParams } from 'next/navigation';
 import useUserStore from '@/store/userStore';
 import { Lang, setEmailHtml } from '@/config/UtilsPetQrInfo_lang';
 import { sendEmail } from '@/server/actions/sendEmail';
+// Import the improved getUserLocation function
+import getUserLocation from '@/utils/getUserLocation';
 
 interface PetInfoProps {
   params: {
@@ -38,33 +40,32 @@ export default function PetInfoPage({ params }: PetInfoProps) {
 
   const telLink = (phone: string) => (phone ? `tel:${phone.replace(/\D/g, '')}` : '');
 
+  // Updated function using getUserLocation
   const sendEmailWithTheUserData = async () => {
     const webEmail = process.env.NEXT_PUBLIC_EMAIL_WEB || '';
 
-    // get user location from his device
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          const { latitude, longitude } = position.coords;
-          const location = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
-          const isSuccess = await sendEmail({
-            bussinessName: 'Alfonso | Web Developer',
-            fromEmail: webEmail,
-            fromName: 'PetQR (alfonso.ar)',
-            to: [e],
-            subject: txt.email_subject,
-            text: txt.setEmailText(location),
-            html: setEmailHtml(appIsEnglish, location),
-          });
-          if (isSuccess) console.info('Message send:', `Location: ${location}`);
-          else console.error('Error sending message:', `Location: ${location}`);
-        },
-        (error) => {
-          console.error('Error getting location:', error);
-        }
-      );
-    } else {
-      console.error('Geolocation is not supported by this browser.');
+    // Use the imported getUserLocation function
+    const { data: locationData, error: locationError } = await getUserLocation();
+
+    if (locationData) {
+      const { GoogleMapsLocation: location } = locationData;
+      console.info('Attempting to send email with location:', location);
+      const isSuccess = await sendEmail({
+        bussinessName: 'Alfonso | Web Developer',
+        fromEmail: webEmail,
+        fromName: 'PetQR (alfonso.ar)',
+        to: [e],
+        subject: txt.email_subject,
+        text: txt.setEmailText(location),
+        html: setEmailHtml(appIsEnglish, location),
+      });
+      if (isSuccess) console.info('Message sent successfully:', `Location: ${location}`);
+      else console.error('Error sending message:', `Location: ${location}`);
+    } else if (locationError) {
+      // Log the error from getUserLocation
+      console.error('Error getting location for email:', locationError.message);
+      // Optionally, send an email without location or notify the user
+      // For now, we just log the error.
     }
   };
 
@@ -72,7 +73,7 @@ export default function PetInfoPage({ params }: PetInfoProps) {
   useEffect(() => {
     if (e) sendEmailWithTheUserData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [e]);
+  }, [e]); // Keep dependency array as is if the intention is to run only when 'e' changes initially
 
   return (
     <div className="max-w-md m-auto p-4 bg-white bg-opacity-50 rounded shadow dark:bg-black dark:bg-opacity-50">

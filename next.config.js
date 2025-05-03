@@ -25,6 +25,11 @@ const withPWA = require('@ducanh2912/next-pwa').default({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  compiler: {
+    // Remove all console logs in production builds.
+    // Set to true to remove all console.* calls.
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
   // ... other options you like
 };
 

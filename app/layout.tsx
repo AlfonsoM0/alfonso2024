@@ -6,6 +6,7 @@ import { Navbar } from '@/components/navbar';
 import clsx from 'clsx';
 import Footer from '@/components/footer';
 import { app_metadata, app_viewport } from '@/config/AppMetadata';
+import GetUserData from '@/components/GetUserData';
 
 export const metadata: Metadata = app_metadata;
 export const viewport: Viewport = app_viewport;
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
+            <GetUserData />
             <main className="container m-auto max-w-screen-lg p-10 flex-grow">{children}</main>
             <Footer />
           </div>

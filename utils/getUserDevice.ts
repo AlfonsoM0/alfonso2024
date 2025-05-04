@@ -4,45 +4,57 @@
 export type DeviceType = 'mobile' | 'tablet' | 'desktop' | 'unknown';
 
 /**
- * Attempts to determine the type of device the user is using based on the browser's user agent string.
+ * Represents the determined device and platform information.
+ */
+export interface DeviceInfo {
+  device: DeviceType;
+  platform: string;
+  userAgent: string;
+}
+
+/**
+ * Attempts to determine the type of device, platform, and retrieve the user agent string from the browser's navigator object.
  * Note: User agent sniffing is not always 100% reliable as user agents can be spoofed or changed.
  * Consider this a best-effort determination.
  *
- * @returns {DeviceType} The determined device type ('mobile', 'tablet', 'desktop', or 'unknown').
+ * @returns {DeviceInfo} An object containing the determined device type, platform string, and the full user agent string.
  *
  * @example
- * const device = getUserDevice();
- * console.log('Device type:', device);
+ * const { device, platform, userAgent } = getUserDevice();
+ * console.log(`Device type: ${device}, Platform: ${platform}`);
+ * console.log(`User Agent: ${userAgent}`);
  *
  * if (device === 'mobile') {
  *   // Apply mobile-specific logic
  * }
  */
-export default function getUserDevice(): DeviceType {
+export default function getUserDevice(): DeviceInfo {
   // Ensure this code only runs on the client-side
   if (typeof window === 'undefined' || !navigator?.userAgent) {
-    console.warn('Cannot determine device type: navigator.userAgent is not available.');
-    return 'unknown'; // Cannot determine without userAgent
+    console.warn('Cannot determine device info: navigator object is not available.');
+    return { device: 'unknown', platform: 'unknown', userAgent: 'unknown' }; // Cannot determine without navigator
   }
 
   const ua = navigator.userAgent;
+  const platform = navigator.platform || 'unknown'; // Get platform, default to 'unknown'
+  let device: DeviceType = 'unknown';
 
   // Common patterns for tablets
   if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
-    return 'tablet';
-  }
-
-  // Common patterns for mobile devices
-  // Includes 'Android', 'webOS', 'iPhone', 'iPod', 'BlackBerry', 'IEMobile', 'Opera Mini'
-  // The 'mobi' check helps differentiate Android phones from tablets
-  if (
+    device = 'tablet';
+  } else if (
+    // Common patterns for mobile devices
+    // Includes 'Android', 'webOS', 'iPhone', 'iPod', 'BlackBerry', 'IEMobile', 'Opera Mini'
+    // The 'mobi' check helps differentiate Android phones from tablets
     /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
       ua
     )
   ) {
-    return 'mobile';
+    device = 'mobile';
+  } else {
+    // If none of the above, assume desktop
+    device = 'desktop';
   }
 
-  // If none of the above, assume desktop
-  return 'desktop';
+  return { device, platform, userAgent: ua };
 }

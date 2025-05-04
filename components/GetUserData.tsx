@@ -16,9 +16,9 @@ export default function GetUserData() {
       }
 
       // --- Get Device Info ---
-      const deviceType = getUserDevice();
-      const deviceInfo = `Device Type: ${deviceType}`;
-      console.info('User device determined:', deviceInfo);
+      const { device: deviceType, platform, userAgent } = getUserDevice(); // Get device, platform, and userAgent
+      const deviceInfo = `Device Type: ${deviceType}, Platform: ${platform}, User Agent: ${userAgent}`;
+      console.info('User device, platform & userAgent determined:', deviceInfo);
       // You could potentially gather more info here if needed, e.g., navigator.platform, screen resolution
 
       // --- Get Location Info ---
@@ -44,18 +44,46 @@ export default function GetUserData() {
       }
 
       // --- Prepare and Send Email ---
-      const subject = `Website Visit Notification (${deviceType})`; // Add device type to subject for quick view
-      const text = `Someone visited the page.\nDevice Info: ${deviceInfo}\nLocation Info: ${locationInfo}\nMap Link: ${locationLink}`;
-      // Add device info to the HTML email body
+      const subject = `Website Visit Notification (${deviceType} / ${platform})`; // Add device and platform to subject
+      const text = `Someone visited the page.\nDevice Type: ${deviceType}\nPlatform: ${platform}\nUser Agent: ${userAgent}\nLocation Info: ${locationInfo}\nMap Link: ${locationLink}`; // Update text version
+
+      // Improved HTML email body
       const html = `
-        <p>Someone visited the page.</p>
-        <p><strong>Device Information:</strong> ${deviceInfo}</p>
-        <p><strong>Location Information:</strong> ${locationInfo}</p>
-        ${
-          locationLink !== '#'
-            ? `<p><a href="${locationLink}">View Location on Google Maps</a></p>`
-            : ''
-        }
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+          <div style="max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
+            <div style="text-align: center; margin-bottom: 20px;">
+              <img src="https://alfonso.ar/android-chrome-512x512.png" alt="App Logo" style="width: 80px; height: 80px; border-radius: 50%;">
+              <h2 style="color: #0056b3; margin-top: 10px;">Website Visit Notification</h2>
+            </div>
+            <p>A new visit has been registered on the website.</p>
+            <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
+            <h3 style="color: #0056b3;">Visitor Details:</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 8px 0; font-weight: bold;">Device Type:</td>
+                <td style="padding: 8px 0;">${deviceType}</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 8px 0; font-weight: bold;">Platform:</td>
+                <td style="padding: 8px 0;">${platform}</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 8px 0; font-weight: bold;">User Agent:</td>
+                <td style="padding: 8px 0; word-break: break-all;">${userAgent}</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 8px 0; font-weight: bold;">Location Info:</td>
+                <td style="padding: 8px 0;">${locationInfo}</td>
+              </tr>
+              ${
+                locationLink !== '#'
+                  ? `<tr style="border-bottom: 1px solid #eee;"><td style="padding: 8px 0; font-weight: bold;">Map Link:</td><td style="padding: 8px 0;"><a href="${locationLink}" style="color: #007bff; text-decoration: none;">View on Google Maps</a></td></tr>`
+                  : ''
+              }
+            </table>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #777;">This is an automated notification from the Website System.</p>
+          </div>
+        </div>
       `;
       try {
         console.info(`Sending visit notification to ${notificationEmail}...`);

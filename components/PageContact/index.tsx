@@ -50,7 +50,7 @@ export default function ContactForm() {
     setIsLoading(true);
     setIsSubmited(true);
 
-    const infoForEmail = formToEmail(values);
+    const infoForEmail = await formToEmail(values);
     const emailIsOK = await sendEmail(infoForEmail);
 
     if (emailIsOK) {

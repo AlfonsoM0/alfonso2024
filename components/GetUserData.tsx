@@ -174,12 +174,12 @@ export default function GetUserData({
     // Call the async function if user is not admin and is automatic
     if (!isManualActivation) debounceSendVisitNotification();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [adminKey]); // Empty dependency array ensures this runs only once on mount
+  }, [adminKey, isManualActivation]); // Empty dependency array ensures this runs only once on mount
 
   useEffect(() => {
     if (isManualActivation && isActive) debounceSendVisitNotification();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [adminKey, metadata]);
+  }, [adminKey, isManualActivation, isActive, metadata]);
 
   // This component doesn't render anything visible
   return null;

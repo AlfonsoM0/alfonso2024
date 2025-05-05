@@ -7,7 +7,7 @@ import SendInput from './sendInput';
 import useUserStore from '@/store/userStore';
 import { Lang } from '@config/AlfonsoBot_lang';
 import Markdown from 'markdown-to-jsx';
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import GetUserData from '../GetUserData';
 import objectToHtmlString from '@/utils/objectToHtmlString';
 
@@ -15,7 +15,7 @@ export default function Alfonsobot() {
   const { appIsEnglish, isBotLoading } = useUserStore();
   const txt = appIsEnglish ? Lang.en : Lang.es;
 
-  const { alfonsobotChat } = useUserStore();
+  const { alfonsobotChat, userQuery } = useUserStore();
   const chat = [alfonsoBoit1stResponse(appIsEnglish), ...alfonsobotChat];
 
   // If isLoadingContent is true, scroll to the bottom.
@@ -36,15 +36,17 @@ export default function Alfonsobot() {
       ),
     [alfonsobotChat]
   );
+  const [activate, setActivate] = useState(false);
+  useEffect(() => {
+    setActivate(false);
+  }, [userQuery]);
+  useEffect(() => {
+    setActivate(true);
+  }, [alfonsobotChat.length]);
 
   return (
     <>
-      <GetUserData
-        metadata={metadata}
-        isManualActivation
-        isActive={Boolean(alfonsobotChat.length)}
-        timeOut={10000}
-      />
+      <GetUserData metadata={metadata} isManualActivation isActive={activate} timeOut={10000} />
       <div className="h-[80vh] md:h-[70vh] mx-[-2rem] md:mx-0 flex flex-col">
         <div className="bg-[rgba(255,255,255,0.7)] dark:bg-[rgba(0,0,0,0.7)] flex-1 overflow-y-scroll">
           <div className="px-4 py-2">

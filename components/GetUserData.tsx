@@ -6,6 +6,7 @@ import { sendEmail } from '@/server/actions/sendEmail';
 import { useEffect } from 'react';
 import useUserStore from '@/store/userStore';
 import { useDebouncedCallback } from 'use-debounce';
+import { isAdmKeyCorrect } from '@/server/actions/isAdmKeyCorrect';
 
 /**
  * A React component that tracks and sends a notification about a user's visit to the website.
@@ -46,9 +47,13 @@ export default function GetUserData({
   isManualActivation?: boolean;
   isActive?: boolean;
 }) {
-  const { isAdm } = useUserStore();
+  const { adminKey } = useUserStore();
 
   const sendVisitNotification = async () => {
+    if (!adminKey) return;
+    const isAdmin = await isAdmKeyCorrect(adminKey);
+    if (!isAdmin) return;
+
     const notificationEmail = process.env.NEXT_PUBLIC_EMAIL_WEB;
 
     if (!notificationEmail) {
@@ -168,14 +173,14 @@ export default function GetUserData({
 
   useEffect(() => {
     // Call the async function if user is not admin and is automatic
-    if (!isAdm && !isManualActivation) debounceSendVisitNotification();
+    if (!isManualActivation) debounceSendVisitNotification();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, [adminKey]); // Empty dependency array ensures this runs only once on mount
 
   useEffect(() => {
-    if (!isAdm && isManualActivation && isActive) debounceSendVisitNotification();
+    if (isManualActivation && isActive) debounceSendVisitNotification();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isActive, metadata]);
+  }, [adminKey, metadata]);
 
   // This component doesn't render anything visible
   return null;

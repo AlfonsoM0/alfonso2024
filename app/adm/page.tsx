@@ -9,16 +9,14 @@ import { Button, Input } from '@nextui-org/react';
 import React, { useState } from 'react';
 
 export default function Page() {
-  const [key, setKey] = useState('');
-
-  const { setIsAdm } = useUserStore();
+  const { adminKey, setAdminKey } = useUserStore();
+  const [textBtn, setTextBtn] = useState('💀');
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const isAdm = await isAdmKeyCorrect(key);
-    setIsAdm(isAdm);
-    console.log('isAdm => ', isAdm);
-    setKey(isAdm ? 'Welcome Admin' : key);
+    const isAdmin = await isAdmKeyCorrect(adminKey);
+    if (isAdmin) setTextBtn('😁');
+    else setTextBtn('💀');
   }
 
   return (
@@ -26,8 +24,8 @@ export default function Page() {
       <BackgroundImg alt="Dark Background" type="dark" opacity={1} src={bgRay} />
       <BackgroundImg alt="Light Background" type="light" opacity={1} src={bgSpacesun} />
       <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '5px' }}>
-        <Input value={key} onChange={(e) => setKey(e.currentTarget.value)} />
-        <Button type="submit"> 💀 </Button>
+        <Input value={adminKey} onChange={(e) => setAdminKey(e.currentTarget.value)} />
+        <Button type="submit">{textBtn}</Button>
       </form>
     </>
   );

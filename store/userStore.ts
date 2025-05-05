@@ -9,7 +9,7 @@ type UserState = {
   userQuery: string;
   isBotLoading: boolean;
   isBotError: boolean;
-  isAdm: boolean;
+  adminKey: string;
 };
 
 type Action = {
@@ -20,7 +20,7 @@ type Action = {
   setUserQuery: (userQuery: string) => void;
   setIsBotLoading: (isBotLoading: boolean) => void;
   setIsBotError: (isBotError: boolean) => void;
-  setIsAdm: (isAdm: boolean) => void;
+  setAdminKey: (adminKey: string) => void;
 };
 
 const useUserStore = create<UserState & Action>()(
@@ -33,7 +33,7 @@ const useUserStore = create<UserState & Action>()(
         userQuery: '',
         isBotLoading: false,
         isBotError: false,
-        isAdm: false,
+        adminKey: '',
 
         // Actions
         changeLanguage: () => set(() => ({ appIsEnglish: !get().appIsEnglish })),
@@ -57,7 +57,7 @@ const useUserStore = create<UserState & Action>()(
 
         setIsBotError: (isBotError) => set({ isBotError }),
 
-        setIsAdm: (isAdm) => set({ isAdm }),
+        setAdminKey: (adminKey) => set({ adminKey }),
       }),
       { name: 'userStore' }
     )

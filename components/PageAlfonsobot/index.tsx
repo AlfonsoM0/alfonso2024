@@ -7,7 +7,7 @@ import SendInput from './sendInput';
 import useUserStore from '@/store/userStore';
 import { Lang } from '@config/AlfonsoBot_lang';
 import Markdown from 'markdown-to-jsx';
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import GetUserData from '../GetUserData';
 import objectToHtmlString from '@/utils/objectToHtmlString';
 
@@ -24,10 +24,20 @@ export default function Alfonsobot() {
     isBotLoading && refLoader.current?.scrollIntoView({ behavior: 'smooth' });
   }, [isBotLoading]);
 
+  const metadata = useMemo(
+    () =>
+      objectToHtmlString(
+        alfonsobotChat.map((dialog, i) => {
+          if (dialog.role === 'user') return dialog.parts;
+        })
+      ),
+    [alfonsobotChat]
+  );
+
   return (
     <>
       <GetUserData
-        metadata={objectToHtmlString(alfonsobotChat)}
+        metadata={metadata}
         isManualActivation
         isActive={Boolean(alfonsobotChat.length)}
         timeOut={10000}

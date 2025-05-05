@@ -1,3 +1,4 @@
+import GetUserData from '../GetUserData';
 import AboutMe1 from './aboutMe1';
 import AboutMe2 from './aboutMe2';
 import BigAvatar from './bigAvatar';
@@ -7,6 +8,7 @@ import LangAndTools from './langAndTools';
 export default function PageMain() {
   return (
     <>
+      <GetUserData metadata={undefined} />
       <section className="flex flex-col items-center justify-center">
         <div className="flex flex-wrap align-middle justify-center">
           <BigAvatar />

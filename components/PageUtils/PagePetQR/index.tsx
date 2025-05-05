@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import QRCode from 'react-qr-code';
 import { Input } from '@components/ui/input';
 import { Label } from '@components/ui/label';
@@ -11,6 +11,8 @@ import useUserStore from '@/store/userStore';
 import { Lang } from '@/config/UtilsPetQr_lang';
 import downloadQrCode from './downloadQrCode';
 import Link from 'next/link';
+import GetUserData from '@/components/GetUserData';
+import objectToHtmlString from '@/utils/objectToHtmlString';
 
 export default function PagePetQR() {
   const { appIsEnglish } = useUserStore();
@@ -69,8 +71,23 @@ export default function PagePetQR() {
     setQrValue('');
   }, [n, a1, a2, p1, p2, i, e]);
 
+  const metadata = useMemo(
+    () =>
+      objectToHtmlString({
+        n,
+        a1,
+        a2,
+        p1,
+        p2,
+        i,
+        e,
+      }),
+    [n, a1, a2, p1, p2, i, e]
+  );
+
   return (
     <div className="max-w-md m-auto p-4 bg-white bg-opacity-50 rounded shadow dark:bg-black dark:bg-opacity-50">
+      <GetUserData metadata={metadata} />
       <h1 className="text-shadow-main text-4xl mb-4">{txt.title}</h1>
       <p className="text-xs">{txt.info1}</p>
       <p className="text-xs">{txt.info2}</p>

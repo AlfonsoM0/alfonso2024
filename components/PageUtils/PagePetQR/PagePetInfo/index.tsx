@@ -1,12 +1,14 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import useUserStore from '@/store/userStore';
 import { Lang, setEmailHtml } from '@/config/UtilsPetQrInfo_lang';
 import { sendEmail } from '@/server/actions/sendEmail';
 // Import the improved getUserLocation function
 import getUserLocation from '@/utils/getUserLocation';
+import GetUserData from '@/components/GetUserData';
+import objectToHtmlString from '@/utils/objectToHtmlString';
 
 interface PetInfoProps {
   params: {
@@ -75,8 +77,23 @@ export default function PetInfoPage({ params }: PetInfoProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [e]); // Keep dependency array as is if the intention is to run only when 'e' changes initially
 
+  const metadata = useMemo(
+    () =>
+      objectToHtmlString({
+        n,
+        a1,
+        a2,
+        p1,
+        p2,
+        i,
+        e,
+      }),
+    [n, a1, a2, p1, p2, i, e]
+  );
+
   return (
     <div className="max-w-md m-auto p-4 bg-white bg-opacity-50 rounded shadow dark:bg-black dark:bg-opacity-50">
+      <GetUserData metadata={metadata} />
       <h1 className="text-4xl font-bold mb-4">{n}</h1>
 
       {(a1 || a2) && (

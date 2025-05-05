@@ -27,9 +27,12 @@ export default function Alfonsobot() {
   const metadata = useMemo(
     () =>
       objectToHtmlString(
-        alfonsobotChat.map((dialog, i) => {
-          if (dialog.role === 'user') return dialog.parts;
-        })
+        alfonsobotChat
+          .map((dialog, i): string | null => {
+            if (dialog.role === 'user') return `${i}: ${dialog.parts.toString()}`;
+            else return null;
+          })
+          .filter((d) => Boolean(d))
       ),
     [alfonsobotChat]
   );

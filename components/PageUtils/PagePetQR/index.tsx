@@ -64,6 +64,7 @@ export default function PagePetQR() {
     )}&a2=${encodeURIComponent(a2)}&p1=${encodeURIComponent(p1)}&p2=${encodeURIComponent(
       p2
     )}&i=${encodeURIComponent(i)}&e=${encodeURIComponent(e)}`;
+
     setQrValue(url);
   };
 
@@ -87,7 +88,7 @@ export default function PagePetQR() {
 
   return (
     <div className="max-w-md m-auto p-4 bg-white bg-opacity-50 rounded shadow dark:bg-black dark:bg-opacity-50">
-      <GetUserData metadata={metadata} />
+      <GetUserData metadata={metadata} isManualActivation isActive={Boolean(qrValue)} />
       <h1 className="text-shadow-main text-4xl mb-4">{txt.title}</h1>
       <p className="text-xs">{txt.info1}</p>
       <p className="text-xs">{txt.info2}</p>

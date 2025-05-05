@@ -5,8 +5,47 @@ import getUserDevice from '@/utils/getUserDevice'; // Import getUserDevice
 import { sendEmail } from '@/server/actions/sendEmail';
 import { useEffect } from 'react';
 import useUserStore from '@/store/userStore';
+import { useDebouncedCallback } from 'use-debounce';
 
-export default function GetUserData({ metadata }: { metadata?: string }) {
+/**
+ * A React component that tracks and sends a notification about a user's visit to the website.
+ * This component does not render any visible UI and operates in the background.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} [props.metadata] - Optional metadata to include in the notification email.
+ * @param {number} [props.timeOut=3000] - The debounce timeout in milliseconds for sending the notification.
+ * @param {boolean} [props.isManualActivation=false] - Whether the notification should be triggered manually.
+ * @param {boolean} [props.isActive=false] - Indicates if the manual activation is active.
+ *
+ * @returns {null} This component does not render any visible elements.
+ *
+ * @remarks
+ * - The component uses the `useUserStore` hook to determine if the user is an admin (`isAdm`).
+ * - If the user is not an admin and `isManualActivation` is `false`, the notification is sent automatically on mount.
+ * - If `isManualActivation` is `true`, the notification is sent only when `isActive` becomes `true`.
+ * - The notification email includes details such as the current page URL, device information, and location (if available).
+ *
+ * @example
+ * ```tsx
+ * <GetUserData
+ *   metadata="User visited the homepage"
+ *   timeOut={5000}
+ *   isManualActivation={true}
+ *   isActive={isNotificationActive}
+ * />
+ * ```
+ */
+export default function GetUserData({
+  metadata,
+  timeOut = 3000,
+  isManualActivation = false,
+  isActive = false,
+}: {
+  metadata?: string;
+  timeOut?: number;
+  isManualActivation?: boolean;
+  isActive?: boolean;
+}) {
   const { isAdm } = useUserStore();
 
   const sendVisitNotification = async () => {
@@ -125,11 +164,18 @@ export default function GetUserData({ metadata }: { metadata?: string }) {
     }
   };
 
+  const debounceSendVisitNotification = useDebouncedCallback(sendVisitNotification, timeOut);
+
   useEffect(() => {
-    // Call the async function if user is not admin
-    if (!isAdm) sendVisitNotification();
+    // Call the async function if user is not admin and is automatic
+    if (!isAdm && !isManualActivation) debounceSendVisitNotification();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Empty dependency array ensures this runs only once on mount
+
+  useEffect(() => {
+    if (!isAdm && isManualActivation && isActive) debounceSendVisitNotification();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isActive, metadata]);
 
   // This component doesn't render anything visible
   return null;

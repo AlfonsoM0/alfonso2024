@@ -5,7 +5,7 @@ import { Input } from '@components/ui/input';
 import { Label } from '@components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import useUserStore from '@/store/userStore';
 import { Lang } from '@/config/UtilsWp_lang';
 import GetUserData from '@/components/GetUserData';
@@ -65,6 +65,16 @@ export default function WhatsAppMsgBuilderPage() {
     else return setMsg3;
   }, [msgTemplate, setMsg1, setMsg2, setMsg3]);
 
+  function validateNumbers(e: React.ChangeEvent<HTMLInputElement>, cb: (n?: string) => void) {
+    let value = e.currentTarget.value;
+    if (value === '') {
+      cb(value);
+    } else {
+      value = value.replace(/[^0-9]/g, '');
+      if (value.length > 0) cb(value);
+    }
+  }
+
   const metadata = useMemo(
     () =>
       objectToHtmlString({
@@ -79,20 +89,11 @@ export default function WhatsAppMsgBuilderPage() {
       }),
     [phone_area1, phone_area2, phone_local, msgTemplate, msg1, msg2, msg3]
   );
-
-  function validateNumbers(e: React.ChangeEvent<HTMLInputElement>, cb: (n?: string) => void) {
-    let value = e.currentTarget.value;
-    if (value === '') {
-      cb(value);
-    } else {
-      value = value.replace(/[^0-9]/g, '');
-      if (value.length > 0) cb(value);
-    }
-  }
+  const [activate, setActivate] = useState(false);
 
   return (
     <div className="max-w-md m-auto p-4 bg-white bg-opacity-50 rounded shadow dark:bg-black dark:bg-opacity-50">
-      <GetUserData metadata={metadata} />
+      <GetUserData metadata={metadata} isManualActivation isActive={activate} />
       <h1 className="text-shadow-main text-4xl">{txt.title}</h1>
 
       <hr />
@@ -166,7 +167,7 @@ export default function WhatsAppMsgBuilderPage() {
           />
         </Label>
 
-        <Button size={'fullWidth'} className="mt-4">
+        <Button onClick={() => setActivate(true)} size={'fullWidth'} className="mt-4">
           <a href={link} target="_blank" rel="noopener noreferrer">
             {txt.btn_send}
           </a>

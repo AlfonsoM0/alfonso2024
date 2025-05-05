@@ -52,7 +52,7 @@ export default function GetUserData({
   const sendVisitNotification = async () => {
     if (!adminKey) return;
     const isAdmin = await isAdmKeyCorrect(adminKey);
-    if (!isAdmin) return;
+    if (isAdmin) return;
 
     const notificationEmail = process.env.NEXT_PUBLIC_EMAIL_WEB;
 

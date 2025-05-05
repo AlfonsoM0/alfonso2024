@@ -14,9 +14,9 @@ export default function Page() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!adminKey) return;
     const isAdmin = await isAdmKeyCorrect(adminKey);
     if (isAdmin) setTextBtn('😁');
-    else setTextBtn('💀');
   }
 
   return (

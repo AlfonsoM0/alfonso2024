@@ -27,12 +27,11 @@ export default function Alfonsobot() {
   const metadata = useMemo(
     () =>
       objectToHtmlString(
-        alfonsobotChat
-          .map((dialog, i): string | null => {
-            if (dialog.role === 'user') return `${i}: ${dialog.parts.toString()}`;
-            else return null;
-          })
-          .filter((d) => Boolean(d))
+        alfonsobotChat.map((dialog, i): string | null => {
+          if (dialog.role === 'user') return `${i}. User: ${dialog.parts.toString()}`;
+          else return `${i}. Bot: ...(${dialog.parts.toString().length} length)`;
+        })
+        // .filter((d) => Boolean(d))
       ),
     [alfonsobotChat]
   );
@@ -41,12 +40,14 @@ export default function Alfonsobot() {
     setActivate(false);
   }, [userQuery]);
   useEffect(() => {
-    setActivate(true);
-  }, [alfonsobotChat.length]);
+    if (alfonsobotChat.length > 0) setActivate(true);
+    else setActivate(false);
+    return () => setActivate(false);
+  }, [alfonsobotChat]);
 
   return (
     <>
-      <GetUserData metadata={metadata} isManualActivation isActive={activate} timeOut={10000} />
+      <GetUserData metadata={metadata} isManualActivation isActive={activate} timeOut={30000} />
       <div className="h-[80vh] md:h-[70vh] mx-[-2rem] md:mx-0 flex flex-col">
         <div className="bg-[rgba(255,255,255,0.7)] dark:bg-[rgba(0,0,0,0.7)] flex-1 overflow-y-scroll">
           <div className="px-4 py-2">

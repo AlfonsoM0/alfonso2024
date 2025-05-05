@@ -5,7 +5,7 @@ import { Input } from '@components/ui/input';
 import { Label } from '@components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import useUserStore from '@/store/userStore';
 import { Lang } from '@/config/UtilsWp_lang';
 import GetUserData from '@/components/GetUserData';
@@ -81,7 +81,6 @@ export default function WhatsAppMsgBuilderPage() {
         phone_area1,
         phone_area2,
         phone_local,
-
         msgTemplate,
         msg1,
         msg2,
@@ -90,6 +89,9 @@ export default function WhatsAppMsgBuilderPage() {
     [phone_area1, phone_area2, phone_local, msgTemplate, msg1, msg2, msg3]
   );
   const [activate, setActivate] = useState(false);
+  useEffect(() => {
+    setActivate(false);
+  }, [phone_area1, phone_area2, phone_local, msgTemplate, msg1, msg2, msg3]);
 
   return (
     <div className="max-w-md m-auto p-4 bg-white bg-opacity-50 rounded shadow dark:bg-black dark:bg-opacity-50">

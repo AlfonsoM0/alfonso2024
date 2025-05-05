@@ -50,7 +50,6 @@ export default function GetUserData({
   const { adminKey } = useUserStore();
 
   const sendVisitNotification = async () => {
-    if (!adminKey) return;
     const isAdmin = await isAdmKeyCorrect(adminKey);
     if (isAdmin) return;
 

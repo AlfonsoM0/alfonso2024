@@ -25,10 +25,14 @@ export async function POST(request: Request) {
 
     const emailParams: EmailParams = await request.json();
 
+    console.log('Email Params:', emailParams);
+
     // Validate the incoming data if necessary, though EmailParams type helps
     // For a simple implementation, we'll pass it directly
 
     const success = await sendEmail(emailParams);
+
+    console.log('Email sent successfully:', success);
 
     if (success) {
       return NextResponse.json({ success: true });

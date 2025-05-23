@@ -32,7 +32,7 @@ export async function POST(request: Request) {
 
     const success = await sendEmail(emailParams);
 
-    console.log('Email sent successfully:', success);
+    console.log('Email success:', success);
 
     if (success) {
       return NextResponse.json({ success: true });

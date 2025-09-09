@@ -49,8 +49,8 @@ export default function EU99Page() {
   return (
     <main className="min-h-screen relative flex items-center justify-center p-6">
       {/* Fondo según tema (componente existente) */}
-      <BackgroundImg src={Clouds} alt="Cielo" type="light" opacity={0.9} />
-      <BackgroundImg src={Clouds} alt="Cielo" type="dark" opacity={0.9} />
+      <BackgroundImg src={Clouds} alt="Cielo" type="light" opacity={0.7} />
+      <BackgroundImg src={Clouds} alt="Cielo" type="dark" opacity={0.7} />
 
       <div className="z-10 w-full max-w-3xl text-center">
         {/* Reproductor de audio invisible: se mantiene montado para que la ref exista */}
@@ -58,24 +58,26 @@ export default function EU99Page() {
         {!show ? (
           <button
             onClick={handleShow}
-            className="mx-auto rounded-full bg-sky-900 hover:bg-sky-800 text-white px-8 py-4 text-2xl font-semibold shadow-lg ring-2 ring-sky-700/30"
+            className="mx-auto rounded-full bg-sky-900 hover:bg-sky-800 text-white px-8 py-4 text-2xl font-semibold shadow-lg ring-2 ring-sky-500/50"
             aria-label="Gracias"
           >
-            Gracias
+            ❤︎ Gracias ❤︎
+            <br />
+            <small className="text-sm text-sky-500">¡Abrir y escuchar!</small>
           </button>
         ) : (
           <section className="space-y-6">
             <h1
-              className="text-3xl font-bold text-sky-900"
+              className="text-xl sm:text-3xl font-bold dark:text-sky-100 text-sky-900"
               style={{
                 textShadow: '0 8px 22px rgba(255,255,255,0.85), 0 1px 2px rgba(0,0,0,0.12)',
               }}
             >
-              Gracias a todos
+              ❤︎ Gracias a todos ❤︎
             </h1>
 
             <p
-              className="text-lg text-slate-800 px-4 leading-relaxed"
+              className="text-lg px-4 leading-relaxed dark:text-sky-100 text-sky-800"
               style={{
                 textShadow: '0 6px 18px rgba(255,255,255,0.80), 0 1px 2px rgba(0,0,0,0.10)',
               }}
@@ -87,7 +89,7 @@ export default function EU99Page() {
 
             <div className="mx-auto max-w-full">
               {/* Mostrar la foto grupal JPG con bordes redondeados */}
-              <div className="overflow-hidden rounded-2xl shadow-xl">
+              <div className="relative overflow-hidden rounded-2xl shadow-xl">
                 <Image
                   src={GroupPhoto}
                   alt="Foto grupal EU99"
@@ -96,6 +98,18 @@ export default function EU99Page() {
                   className="w-full h-auto object-cover"
                   priority
                 />
+
+                {/* Texto sobre la foto: centrado y abajo */}
+                <div className="absolute left-1/2 bottom-4 -translate-x-1/2 px-4">
+                  <p
+                    className="text-lg text-white px-4 leading-relaxed text-center"
+                    style={{
+                      textShadow: '0 6px 18px rgba(255,255,255,0.80), 0 1px 2px rgba(0,0,0,0.10)',
+                    }}
+                  >
+                    Septiembre 2025
+                  </p>
+                </div>
               </div>
 
               <div className="mt-4">
@@ -111,7 +125,7 @@ export default function EU99Page() {
                   onClick={() => setShow(false)}
                   className="rounded-md text-white bg-sky-500 hover:bg-sky-300 px-4 py-2"
                 >
-                  Volver
+                  Volver ❤︎
                 </button>
               </div>
             </div>

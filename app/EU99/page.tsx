@@ -101,9 +101,9 @@ export default function EU99Page() {
                 />
 
                 {/* Texto sobre la foto: centrado y abajo */}
-                <div className="absolute left-1/2 bottom-4 -translate-x-1/2 px-4">
+                <div className="absolute left-1/2 top-2 -translate-x-1/2">
                   <p
-                    className="text-lg text-white px-4 leading-relaxed text-center"
+                    className="text-xs sm:text-lg text-white px-4 leading-relaxed text-center"
                     style={{
                       textShadow: '0 6px 18px rgba(255,255,255,0.80), 0 1px 2px rgba(0,0,0,0.10)',
                     }}

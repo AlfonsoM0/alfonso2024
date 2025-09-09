@@ -109,7 +109,7 @@ export default function EU99Page() {
 
                 <button
                   onClick={() => setShow(false)}
-                  className="rounded-md bg-sky-500 hover:bg-sky-300 px-4 py-2"
+                  className="rounded-md text-white bg-sky-500 hover:bg-sky-300 px-4 py-2"
                 >
                   Volver
                 </button>

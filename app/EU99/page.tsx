@@ -10,6 +10,7 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import BackgroundImg from '@/components/BackgroundImg';
 import Clouds from '@public/EU99/CloudsBackground.jpg';
+import Sky from '@public/EU99/CloudsBackgroundDark.jpg';
 import GroupPhoto from '@public/EU99/EU99_Foto.jpg';
 
 export default function EU99Page() {
@@ -49,8 +50,8 @@ export default function EU99Page() {
   return (
     <main className="min-h-screen relative flex items-center justify-center p-6">
       {/* Fondo según tema (componente existente) */}
-      <BackgroundImg src={Clouds} alt="Cielo" type="light" opacity={0.7} />
-      <BackgroundImg src={Clouds} alt="Cielo" type="dark" opacity={0.7} />
+      <BackgroundImg src={Clouds} alt="Cielo" type="light" opacity={0.8} />
+      <BackgroundImg src={Sky} alt="Cielo" type="dark" opacity={0.8} />
 
       <div className="z-10 w-full max-w-3xl text-center">
         {/* Reproductor de audio invisible: se mantiene montado para que la ref exista */}
@@ -77,7 +78,7 @@ export default function EU99Page() {
             </h1>
 
             <p
-              className="text-lg px-4 leading-relaxed dark:text-sky-100 text-sky-800"
+              className="text-lg px-4 leading-relaxed dark:text-sky-100 text-sky-900"
               style={{
                 textShadow: '0 6px 18px rgba(255,255,255,0.80), 0 1px 2px rgba(0,0,0,0.10)',
               }}

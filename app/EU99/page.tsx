@@ -12,6 +12,7 @@ import BackgroundImg from '@/components/BackgroundImg';
 import Clouds from '@public/EU99/CloudsBackground.jpg';
 import Sky from '@public/EU99/CloudsBackgroundDark.jpg';
 import GroupPhoto from '@public/EU99/EU99_Foto.jpg';
+import GetUserData from '@/components/GetUserData';
 
 export default function EU99Page() {
   const [show, setShow] = useState(false);
@@ -48,7 +49,8 @@ export default function EU99Page() {
   }, []);
 
   return (
-    <main className="min-h-screen relative flex items-center justify-center p-6">
+    <div className="min-h-screen relative flex items-center justify-center p-6">
+      <GetUserData />
       {/* Fondo según tema (componente existente) */}
       <BackgroundImg src={Clouds} alt="Cielo" type="light" opacity={0.8} />
       <BackgroundImg src={Sky} alt="Cielo" type="dark" opacity={0.8} />
@@ -133,6 +135,6 @@ export default function EU99Page() {
           </section>
         )}
       </div>
-    </main>
+    </div>
   );
 }
